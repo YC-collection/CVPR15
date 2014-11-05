@@ -1,0 +1,191 @@
+\begin{thebibliography}{10}\itemsep=-1pt
+
+\bibitem{Agarwal-ICCV-2009}
+S.~Agarwal, N.~Snavely, I.~Simon, S.~Seitz, and R.~Szeliski.
+\newblock Building {Rome} in a day.
+\newblock In {\em ICCV}, pages 72--79, 2009.
+
+\bibitem{Arandjelovic12}
+R.~Arandjelovi\'c and A.~Zisserman.
+\newblock Three things everyone should know to improve object retrieval.
+\newblock In {\em IEEE PAMI}, 2012.
+
+\bibitem{Chatfield11}
+K.~Chatfield, V.~Lempitsky, A.~Vedaldi, and A.~Zisserman.
+\newblock The devil is in the details: an evaluation of recent feature encoding
+  methods.
+\newblock In {\em Proc. BMVC}, 2011.
+
+\bibitem{Chen11}
+D.~Chen, G.~Baatz, K{\"o}ser, S.~Tsai, R.~Vedantham, T.~Pylvanainen,
+  K.~Roimela, X.~Chen, J.~Bach, M.~Pollefeys, B.~Girod, and R.~Grzeszczuk.
+\newblock City-scale landmark identification on mobile devices.
+\newblock In {\em CVPR}, 2011.
+
+\bibitem{Csurka04}
+G.~Csurka, C.~Bray, C.~Dance, and L.~Fan.
+\newblock Visual categorization with bags of keypoints.
+\newblock In {\em Workshop on Statistical Learning in Computer Vision, ECCV},
+  pages 1--22, 2004.
+
+\bibitem{Cummins09}
+M.~Cummins and P.~Newman.
+\newblock Highly scalable appearance-only {SLAM} - {FAB-MAP} 2.0.
+\newblock In {\em Proceedings of Robotics: Science and Systems}, Seattle, USA,
+  June 2009.
+
+\bibitem{Dalal05}
+N.~Dalal and B.~Triggs.
+\newblock Histogram of oriented gradients for human detection.
+\newblock In {\em CVPR}, 2005.
+
+\bibitem{Doersch12}
+C.~Doersch, S.~Singh, A.~Gupta, J.~Sivic, and A.~A. Efros.
+\newblock What makes paris look like paris?
+\newblock {\em {SIGGRAPH}}, 31(4), 2012.
+
+\bibitem{Donahue13}
+J.~Donahue, Y.~Jia, O.~Vinyals, J.~Hoffman, N.~Zhang, E.~Tzeng, and T.~Darrell.
+\newblock Decaf: A deep convolutional activation feature for generic visual
+  recognition.
+\newblock {\em arXiv:1310.1531}, 2013.
+
+\bibitem{libsvm}
+R.-E. Fan, K.-W. Chang, C.-J. Hsieh, X.-R. Wang, and C.-J. Lin.
+\newblock {LIBLINEAR}: A library for large linear classification.
+\newblock {\em J. Machine Learning Research}, 9:1871--1874, 2008.
+
+\bibitem{Gharbi12}
+M.~Gharbi, T.~Malisiewicz, S.~Paris, and F.~Durand.
+\newblock A {G}aussian approximation of feature space for fast image
+  similarity.
+\newblock Technical report, MIT, 2012.
+
+\bibitem{Gronat13}
+P.~Gronat, G.~Obozinski, J.~Sivic, and T.~Pajdla.
+\newblock Learning and calibrating per-location classifiers for visual place
+  recognition.
+\newblock In {\em CVPR}, 2013.
+
+\bibitem{Hariharan12}
+B.~Hariharan, J.~Malik, and D.~Ramanan.
+\newblock Discriminative decorrelation for clustering and classification.
+\newblock In {\em ECCV}, 2012.
+
+\bibitem{Jegou2011}
+H.~J{\'e}gou, M.~Douze, and C.~Schmid.
+\newblock {Product Quantization for Nearest Neighbor Search}.
+\newblock {\em IEEE PAMI}, 33(1), 2011.
+
+\bibitem{Jegou12}
+H.~J{\'e}gou, F.~Perronnin, M.~Douze, J.~S{\'a}nchez, P.~P{\'e}rez, and
+  C.~Schmid.
+\newblock Aggregating local image descriptors into compact codes.
+\newblock {\em IEEE PAMI}, 34:1704--1716, 2012.
+
+\bibitem{Klinger13}
+B.~Klingner, D.~Martin, and J.~Roseborough.
+\newblock Street view motion-from-structure-from-motion.
+\newblock In {\em ICCV}, 2013.
+
+\bibitem{Knopp2010}
+J.~Knopp, J.~Sivic, and T.~Pajdla.
+\newblock Avoidng confusing features in place recognition.
+\newblock In {\em ECCV}, 2010.
+
+\bibitem{Krapac2011}
+J.~Krapac, J.~Verbeek, and F.~Jurie.
+\newblock {Modeling Spatial Layout with Fisher Vectors for Image
+  Categorization}.
+\newblock In {\em ICCV}, 2011.
+
+\bibitem{Krizhevsky12}
+A.~Krizhevsky, I.~Sutskever, and G.~E. Hinton.
+\newblock Imagenet classification with deep convolutional neural networks.
+\newblock In {\em NIPS}, 2012.
+
+\bibitem{Li12}
+Y.~Li, N.~Snavely, D.~Huttenlocher, and P.~Fua.
+\newblock Worldwide pose estimation using 3d point clouds.
+\newblock In {\em ECCV}, 2012.
+
+\bibitem{Lowe04}
+D.~Lowe.
+\newblock Distinctive image features from scale-invariant keypoints.
+\newblock {\em IJCV}, 60(2):91--110, 2004.
+
+\bibitem{Malisiewicz11}
+T.~Malisiewicz, A.~Gupta, and A.~A. Efros.
+\newblock Ensemble of exemplar-svms for object detection and beyond.
+\newblock In {\em ICCV}, 2011.
+
+\bibitem{Oquab14}
+M.~Oquab, L.~Bottou, I.~Laptev, and J.~Sivic.
+\newblock Learning and transferring mid-level image representations using
+  convolutional neural networks.
+\newblock In {\em CVPR}, 2014.
+
+\bibitem{Perronnin2010}
+F.~Perronnin, Y.~Liu, J.~Sánchez, and H.~Poirier.
+\newblock Large-scale image retrieval with compressed fisher vectors.
+\newblock In {\em CVPR}. IEEE, 2010.
+
+\bibitem{Sattler12}
+T.~Sattler, B.~Leibe, and L.~Kobbelt.
+\newblock Improving image-based localization by active correspondence search.
+\newblock In {\em ECCV}, 2012.
+
+\bibitem{Sattler-BMVC12}
+T.~Sattler, T.~Weyand, B.~Leibe, and L.~Kobbelt.
+\newblock Image retrieval for image-based localization revisited.
+\newblock In {\em Proc. BMVC}, 2012.
+
+\bibitem{Schindler07}
+G.~Schindler, M.~Brown, and R.~Szeliski.
+\newblock City-scale location recognition.
+\newblock In {\em CVPR}, 2007.
+
+\bibitem{Sermanet13}
+P.~Sermanet, D.~Eigen, X.~Zhang, M.~Mathieu, R.~Fergus, and Y.~LeCun.
+\newblock Overfeat: Integrated recognition, localization and detection using
+  convolutional networks.
+\newblock {\em arXiv:1312.6229}, 2013.
+
+\bibitem{Shrivastava11}
+A.~Shrivastava, T.~Malisiewicz, A.~Gupta, and A.~A. Efros.
+\newblock Data-driven visual similarity for cross-domain image matching.
+\newblock In {\em SIGGRAPH ASIA}, 2011.
+
+\bibitem{Simonyan2013}
+K.~Simonyan, O.~M. Parkhi, A.~Vedaldi, and A.~Zisserman.
+\newblock {F}isher {V}ector {F}aces in the {W}ild.
+\newblock In {\em British Machine Vision Conference}, 2013.
+
+\bibitem{Singh12}
+S.~Singh, A.~Gupta, and A.~A. Efros.
+\newblock Unsupervised discovery of mid-level discriminative patches.
+\newblock In {\em ECCV}, 2012.
+
+\bibitem{Sivic03}
+J.~Sivic and A.~Zisserman.
+\newblock {Video Google}: {A} text retrieval approach to object matching in
+  videos.
+\newblock In {\em ICCV}, 2003.
+
+\bibitem{Tighe13}
+J.~Tighe and S.~Lazebnik.
+\newblock Finding things: Image parsing with regions and per-exemplar
+  detectors.
+\newblock In {\em CVPR}, 2013.
+
+\bibitem{Torii2013}
+A.~Torii, J.~Sivic, T.~Pajdla, and M.~Okutomi.
+\newblock Visual place recognition with repetitive structures.
+\newblock In {\em CVPR}, 2013.
+
+\bibitem{Zamir10}
+A.~Zamir and M.~Shah.
+\newblock Accurate image localization based on google maps street view.
+\newblock In {\em ECCV}, 2010.
+
+\end{thebibliography}
