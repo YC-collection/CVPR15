@@ -83,18 +83,18 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 \label{sec:related}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection*{Large-scale visual place recognition} %\vspace{-3mm}
+\paragraph{Large-scale visual place recognition} %\vspace{-3mm}
     The visual localization problem is typically treated as large-scale instance-level retrieval~\cite{Cummins09,Chen11,Gronat13,Knopp2010,Schindler07,Torii2013,Zamir10}, where images are represented using local invariant features~\cite{Lowe04} aggregated into the bag-of-visual-words~\cite{Csurka04,Sivic03} representation. The image database can be further augmented by 3D point clouds~\cite{Klinger13}, automatically reconstructed by large-scale structure from motion (SfM)~\cite{Agarwal-ICCV-2009,Klinger13}, which enables accurate prediction of query image camera position~\cite{Li12,Sattler12}. In this work we investigate learning a discriminative representation using the compact Fisher vector descriptors~\cite{Jegou12}. Fisher vector descriptors have shown excellent place recognition accuracy~\cite{Torii2013}. In this work we further improve their performance by discriminative learning.
 
 
 
-\subsection*{Fisher vector image representations} %\vspace{-3mm}
+\paragraph{Fisher vector image representations} %\vspace{-3mm}
     Fisher vector image representations have recently demonstrated excellent performance for a number of visual recognition tasks~\cite{Chatfield11,Jegou12,Krapac2011,Simonyan2013}. They are specially suited for retrieval applications since they are robust to image appearance variations and capture richer image statistics than the simple bag-of-visual-words (BOW) aggregation. However, the raw extracted Fisher vectors are typically high-dimensional, e.g.\ with 32,768 non-sparse dimensions, which is impractical for large-scale visual recognition and indexing applications. Hence, their dimensionality is often reduced by principal component analysis (PCA) and further quantized for efficient indexing using, e.g.\, a product quantizer~\cite{Jegou12}.  Other recent work has demonstrated improved performance in a face recognition application by finding discriminative projection using a large amount of training face data~\cite{Simonyan2013}. Our work is complementary to these methods as it operates on the projected low-dimensional descriptor and further learns discriminative re-weighting of the descriptor specific to each image in the database using per-exemplar support vector machine~\cite{Malisiewicz11}.
 
-\subsection*{Per-exemplar support vector machine} %\vspace{-3mm}
+\paragraph{Per-exemplar support vector machine} %\vspace{-3mm}
     The exemplar support vector machine (e-SVM) has been used in a number of visual recognition tasks including category-level recognition~\cite{Malisiewicz11}, cross-domain retrieval~\cite{Shrivastava11}, scene parsing~\cite{Tighe13}, place recognition~\cite{Gronat13} or as an initialization  for more complex discriminative clustering models~\cite{Doersch12,Singh12}. The main idea is to train a linear support vector machine (SVM) classifier from a single positive example and a large number of negatives. The intuition is that the resulting weight vector will give a higher weight to the discriminative dimensions of the positive training data point and will down weight dimensions that are non-discriminative with respect to the negative training data. A key advantage is that each per-exemplar classifier can be trained independently and hence the learning can be heavily parallelized. The per-exemplar training brings however also an important drawback. As each classifier is trained independently a careful calibration of the resulting classifier scores is required~\cite{Gronat13,Malisiewicz11}. 
 
-\subsection*{Contributions} %\vspace{-3mm}
+\paragraph{Contributions} %\vspace{-3mm}
     The contributions of this work are threefold.
     First, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Second, we demonstrate that after an appropriate normalization of the new re-weighted descriptor no further calibration is necessary. Third, we apply e-SVM training to compact Fisher vector descriptors for large-scale place recognition resulting in a {\em discriminative} yet {\em compact} representation of each image in the database. Place recognition results are shown on a dataset of 25k images of Pittsburgh and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions.
 
@@ -125,7 +125,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
    where $\Phi^+_j$ is the descriptor of the place $j$ as the positive data point, $\Phi$ are Fisher descriptors from negative training data $\mathcal N_j$ and $h$ is the hinge loss, $h(y) = \max(1-y,0)$. Note that the first term in~(\ref{eq:obj}) is the regularizer, the second term is the loss on the positive data weighted by scalar parameter $C_1$ and the third term is the loss on the negative data weighted by scalar parameter $C_2$. The objective is convex and can be minimized with respect to $w_j$ and $b_j$ using standard software packages such as~\cite{libsvm}. A key advantage is that the per-exemplar classifier for each place can be trained independently and hence the learning can be heavily parallelized. The downside of the independent training for each positive example is that the resulting scores have to be calibrated with respect to each other on additional data~\cite{Gronat13,Malisiewicz11}.
    
 
-   \subsection*{Analysis of per-exemplar SVM objective} %\vspace{-0.2cm} 
+   \paragraph{Analysis of per-exemplar SVM objective} %\vspace{-0.2cm} 
       In this section, we analyze the exemplar SVM objective~(\ref{eq:obj}) and show the learnt and {\em re-normalized} weight vector $w_j$ can be interpreted as a new descriptor $\Psi_j$ that replaces the original positive training descriptor $\Phi^+_j$.  In particular, we show first that when the weight $C_2$ of the negative data in objective~(\ref{eq:obj}) goes to zero and the learnt $\Psi_j$ is identical to the original positive training data point $\Phi_j^+$.  Second, when $C_2>0$, the learnt $\Psi_j$ moves away from the positive $\Phi_j^+$ to increase its separation from the negative data.
       Details are given next.
 
@@ -192,7 +192,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
                \end{center}
             \end{figure}
 
-   \subsection*{Interpreting normalized $w$ as a new descriptor} %\vspace{-0.2cm} 
+   \paragraph{Interpreting normalized $w$ as a new descriptor} %\vspace{-0.2cm} 
       The above analysis demonstrates that as $C_2$ decreases the normal of the optimal hyperplane $w$ that separates the positive exemplar $\Phi^+$ from negative data becomes parallel with $\Phi^+$, as shown in figure \ref{fig:C2effect}. As $C_2$ increases, the normal $w$ of the optimal hyper-plane moves away from the direction given by the positive example $\Phi^+$ in a manner that reduces the loss on the negative data. 
       This suggests that the learnt $w$ could be interpreted as a modified positive example $\Phi^+$, re-weighted to emphasize directions that separate $\Phi^+$ from the negative data. As discussed above $w$ is not normalized. As we wish to measure the similarity between descriptors by (the cosine of) their angle        
       given by equation \eqref{eq:class}, additional normalization of the learnt $w$ is necessary. Hence we define the new descriptor $\Psi_j$ as the normalized hyperplane normal $w_j$
@@ -265,6 +265,18 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
          %
          %
          %
+         \begin{figure*}
+            \include{myFigureWnorm}
+            \caption{
+                \textbf{Examples of correctly and incorrectly localized queries for the learnt Fisher vector representation.}
+                Each example shows a query image (left) together with correct (green) and incorrect (red) matches from the database obtained by the learnt Fisher vector representation \emph{w-norm} method (top) and the standard Fisher vector baseline (bottom) for dimension 128. Note that the proposed method is able to recognize the place depicted in the query image despite changes in viewpoint, illumination and partial occlusion by other objects (trees, lamps) and buildings. 
+                Note that the baseline methods often finds images depicting the same buildings but in a distance whereas our learnt representation often finds a closer view better matching the content of the query.       
+            }
+            \label{fig:images}
+         \end{figure*}
+         %
+         %
+         %
          \begin{table*}[t!]
             \begin{centering}
                \begin{tabularx}{0.75\linewidth}{|l|c c c c c|c c c c c|}
@@ -307,111 +319,111 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
          %
          %
          %
-         \begin{figure*}[t!]
-            %%%%%%%%%%% Example 1 %%%%%%%%%%%%%%%
-            % QUERY image
-            \begin{minipage}{0.34\linewidth}
-               \centering
-               \vspace{5mm}
-               \includegraphics[height=40mm]{imgs/ex1/query.jpg}
-            \end{minipage}
-            % Retrieved images
-            \begin{minipage}{0.75\linewidth}
-               % FV e-SVM
-               \begin{minipage}{\linewidth} 
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm1.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm2.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm3.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm4.jpg}}
-               \end{minipage}
-               \\
-               \begin{minipage}{\linewidth}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV1.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV2.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV3.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV4.jpg}}
-               \end{minipage} 
-            \end{minipage}
-            \\
-            %%%%%%%%%%% Example 2 %%%%%%%%%%%%%%%
-            \begin{minipage}{0.34\linewidth}
-               \centering
-               \vspace{0mm}
-               \includegraphics[height=36mm]{imgs/ex2/query.jpg}
-            \end{minipage}
-            % Retrieved images
-            \begin{minipage}{0.75\linewidth}
-               % FV e-SVM
-               \begin{minipage}{\linewidth} 
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm1.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm2.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm3.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm4.jpg}}
-               \end{minipage}
-               \\
-               \begin{minipage}{\linewidth}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV1.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV2.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV3.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV4.jpg}}
-               \end{minipage} 
-            \end{minipage}
-            \vspace{3mm}
-            \\
-            %%%%%%%%%%% Example 3 %%%%%%%%%%%%%%%
-            \begin{minipage}{0.34\linewidth}
-               \centering
-               \vspace{0mm}
-               \includegraphics[height=36mm]{imgs/ex3/query.jpg}
-            \end{minipage}
-            % Retrieved images
-            \begin{minipage}{0.75\linewidth}
-               % FV e-SVM
-               \begin{minipage}{\linewidth} 
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FVsvm1.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FVsvm2.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FVsvm5.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FVsvm4.jpg}}
-               \end{minipage}
-               \\
-               \begin{minipage}{\linewidth}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FV1.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FV2.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FV3.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FV4.jpg}}
-               \end{minipage} 
-            \end{minipage}
-            \vspace{3mm}
-            \\
-            %%%%%%%%%%% Example 4 %%%%%%%%%%%%%%%
-            \begin{minipage}{0.34\linewidth}
-               \centering
-               \vspace{0mm}
-               \includegraphics[height=36mm]{imgs/ex4/query.jpg}
-            \end{minipage}
-            % Retrieved images
-            \begin{minipage}{0.75\linewidth}
-               % FV e-SVM
-               \begin{minipage}{\linewidth} 
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FVsvm1.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FVsvm2.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FVsvm5.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FVsvm4.jpg}}
-               \end{minipage}
-               \\
-               \begin{minipage}{\linewidth}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FV1.jpg}}
-                   \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FV2.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FV3.jpg}}
-                   \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FV4.jpg}}
-               \end{minipage} 
-            \end{minipage}
-            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-            \caption{
-               Each example shows a query image (left) together with correct (green) and incorrect (red) matches from the database obtained by our learnt descriptors (top) and the raw Fisher vector descriptor baseline (bottom). For each method we show the top 4 matches from the database using 128-dimensional descriptors.        
-            }
-            \label{fig:images}
-         \end{figure*}
+         % \begin{figure*}[t!]
+         %    %%%%%%%%%%% Example 1 %%%%%%%%%%%%%%%
+         %    % QUERY image
+         %    \begin{minipage}{0.34\linewidth}
+         %       \centering
+         %       \vspace{5mm}
+         %       \includegraphics[height=40mm]{imgs/ex1/query.jpg}
+         %    \end{minipage}
+         %    % Retrieved images
+         %    \begin{minipage}{0.75\linewidth}
+         %       % FV e-SVM
+         %       \begin{minipage}{\linewidth} 
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm1.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm2.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm3.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex1/FVsvm4.jpg}}
+         %       \end{minipage}
+         %       \\
+         %       \begin{minipage}{\linewidth}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV1.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV2.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV3.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex1/FV4.jpg}}
+         %       \end{minipage} 
+         %    \end{minipage}
+         %    \\
+         %    %%%%%%%%%%% Example 2 %%%%%%%%%%%%%%%
+         %    \begin{minipage}{0.34\linewidth}
+         %       \centering
+         %       \vspace{0mm}
+         %       \includegraphics[height=36mm]{imgs/ex2/query.jpg}
+         %    \end{minipage}
+         %    % Retrieved images
+         %    \begin{minipage}{0.75\linewidth}
+         %       % FV e-SVM
+         %       \begin{minipage}{\linewidth} 
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm1.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm2.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm3.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex2/FVsvm4.jpg}}
+         %       \end{minipage}
+         %       \\
+         %       \begin{minipage}{\linewidth}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV1.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV2.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV3.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex2/FV4.jpg}}
+         %       \end{minipage} 
+         %    \end{minipage}
+         %    \vspace{3mm}
+         %    \\
+         %    %%%%%%%%%%% Example 3 %%%%%%%%%%%%%%%
+         %    \begin{minipage}{0.34\linewidth}
+         %       \centering
+         %       \vspace{0mm}
+         %       \includegraphics[height=36mm]{imgs/ex3/query.jpg}
+         %    \end{minipage}
+         %    % Retrieved images
+         %    \begin{minipage}{0.75\linewidth}
+         %       % FV e-SVM
+         %       \begin{minipage}{\linewidth} 
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FVsvm1.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FVsvm2.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FVsvm5.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FVsvm4.jpg}}
+         %       \end{minipage}
+         %       \\
+         %       \begin{minipage}{\linewidth}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FV1.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex3/FV2.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FV3.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex3/FV4.jpg}}
+         %       \end{minipage} 
+         %    \end{minipage}
+         %    \vspace{3mm}
+         %    \\
+         %    %%%%%%%%%%% Example 4 %%%%%%%%%%%%%%%
+         %    \begin{minipage}{0.34\linewidth}
+         %       \centering
+         %       \vspace{0mm}
+         %       \includegraphics[height=36mm]{imgs/ex4/query.jpg}
+         %    \end{minipage}
+         %    % Retrieved images
+         %    \begin{minipage}{0.75\linewidth}
+         %       % FV e-SVM
+         %       \begin{minipage}{\linewidth} 
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FVsvm1.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FVsvm2.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FVsvm5.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FVsvm4.jpg}}
+         %       \end{minipage}
+         %       \\
+         %       \begin{minipage}{\linewidth}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FV1.jpg}}
+         %           \colorbox{myGreen}{\includegraphics[height=16mm]{imgs/ex4/FV2.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FV3.jpg}}
+         %           \colorbox{myRed}{\includegraphics[height=16mm]{imgs/ex4/FV4.jpg}}
+         %       \end{minipage} 
+         %    \end{minipage}
+         %    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+         %    \caption{
+         %       Each example shows a query image (left) together with correct (green) and incorrect (red) matches from the database obtained by our learnt descriptors (top) and the raw Fisher vector descriptor baseline (bottom). For each method we show the top 4 matches from the database using 128-dimensional descriptors.        
+         %    }
+         %    \label{fig:images}
+         % \end{figure*}
          %
          %
          %
