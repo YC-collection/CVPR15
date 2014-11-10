@@ -36,7 +36,7 @@
 \begin{document}
 
 %%%%%%%%% TITLE
-\title{\LaTeX\ Fisher vector places: learning compact image descriptors for place recognition}
+\title{Fisher vector places: learning compact image descriptors for place recognition}
 
 \author{First Author\\
 Institution1\\
@@ -125,7 +125,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
    where $\Phi^+_j$ is the descriptor of the place $j$ as the positive data point, $\Phi$ are Fisher descriptors from negative training data $\mathcal N_j$ and $h$ is the hinge loss, $h(y) = \max(1-y,0)$. Note that the first term in~(\ref{eq:obj}) is the regularizer, the second term is the loss on the positive data weighted by scalar parameter $C_1$ and the third term is the loss on the negative data weighted by scalar parameter $C_2$. The objective is convex and can be minimized with respect to $w_j$ and $b_j$ using standard software packages such as~\cite{libsvm}. A key advantage is that the per-exemplar classifier for each place can be trained independently and hence the learning can be heavily parallelized. The downside of the independent training for each positive example is that the resulting scores have to be calibrated with respect to each other on additional data~\cite{Gronat13,Malisiewicz11}.
    
 
-   \paragraph{Analysis of per-exemplar SVM objective} %\vspace{-0.2cm} 
+   \subsection{Analysis of per-exemplar SVM objective} %\vspace{-0.2cm} 
       In this section, we analyze the exemplar SVM objective~(\ref{eq:obj}) and show the learnt and {\em re-normalized} weight vector $w_j$ can be interpreted as a new descriptor $\Psi_j$ that replaces the original positive training descriptor $\Phi^+_j$.  In particular, we show first that when the weight $C_2$ of the negative data in objective~(\ref{eq:obj}) goes to zero and the learnt $\Psi_j$ is identical to the original positive training data point $\Phi_j^+$.  Second, when $C_2>0$, the learnt $\Psi_j$ moves away from the positive $\Phi_j^+$ to increase its separation from the negative data.
       Details are given next.
 
@@ -192,7 +192,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
                \end{center}
             \end{figure}
 
-   \paragraph{Interpreting normalized $w$ as a new descriptor} %\vspace{-0.2cm} 
+   \subsection{Interpreting normalized $w$ as a new descriptor} %\vspace{-0.2cm} 
       The above analysis demonstrates that as $C_2$ decreases the normal of the optimal hyperplane $w$ that separates the positive exemplar $\Phi^+$ from negative data becomes parallel with $\Phi^+$, as shown in figure \ref{fig:C2effect}. As $C_2$ increases, the normal $w$ of the optimal hyper-plane moves away from the direction given by the positive example $\Phi^+$ in a manner that reduces the loss on the negative data. 
       This suggests that the learnt $w$ could be interpreted as a modified positive example $\Phi^+$, re-weighted to emphasize directions that separate $\Phi^+$ from the negative data. As discussed above $w$ is not normalized. As we wish to measure the similarity between descriptors by (the cosine of) their angle        
       given by equation \eqref{eq:class}, additional normalization of the learnt $w$ is necessary. Hence we define the new descriptor $\Psi_j$ as the normalized hyperplane normal $w_j$

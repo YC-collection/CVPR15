@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: cvpr15review.aux
+A level-1 auxiliary file: myFigureWnorm.aux
 The style file: ieee.bst
 Database file #1: shortstrings.bib
 Database file #2: vggroup.bib
@@ -8,7 +9,7 @@ Database file #3: cvww_template.bib
 Database file #4: mybib.bib
 You've used 35 entries,
             2120 wiz_defined-function locations,
-            966 strings with 12473 characters,
+            967 strings with 12490 characters,
 and the built_in function-call counts, 11797 in all, are:
 = -- 1008
 > -- 769
