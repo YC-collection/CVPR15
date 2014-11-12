@@ -24,7 +24,7 @@
 
 % \cvprfinalcopy % *** Uncomment this line for the final submission
 
-\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\cvprPaperID{954} % *** Enter the CVPR Paper ID here
 \def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
 
 \definecolor{myRed}{HTML}{FF3333}
@@ -36,7 +36,7 @@
 \begin{document}
 
 %%%%%%%%% TITLE
-\title{Fisher vector places: learning compact image descriptors for place recognition}
+\title{Fisher vector places: learning compact descriptors for place recognition}
 
 \author{First Author\\
 Institution1\\
@@ -59,21 +59,19 @@ First line of institution2 address\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   The goal of this work is to localize a query photograph by finding other images depicting the same place in a large geotagged image database. The contributions of this work are three fold. First, we learn a {\em discriminative} yet {\em compact} descriptor of each image in the database. This is achieved by applying exemplar support vector machine (e-SVM) learning to compact Fisher vector descriptors extracted from database images. Second, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Third, based on this analysis we demonstrate that the learnt and re-normalized descriptor could be directly used for matching, thus avoiding the need for expensive and tedious calibration typically needed for exemplar support vector machine methods. Place recognition results are shown on two image datasets of Google street-view images from Pittsburgh  and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions. 
+   The goal of this work is to localize a query photograph by finding other images depicting the same place in a large geotagged image database. The contributions of this work are three fold. First, we learn a {\em discriminative} yet {\em compact} descriptor of each image in the database. This is achieved by applying exemplar support vector machine (e-SVM) learning to compact Fisher vector descriptors extracted from database images. Secondly, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Finally, based on this analysis we demonstrate that the learnt and re-normalized descriptor could be directly used for matching, thus avoiding the need for expensive and tedious calibration typically needed for exemplar support vector machine methods. Place recognition results are shown on two image datasets of Google street-view images from Pittsburgh  and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions. 
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
 \section{Introduction}
 
 The goal of this work is to localize a query image by matching to a large database of geotagged street-level imagery.
-This is an important problem with practical applications in robotics, augmented reality or navigation. This task is however very difficult. It is hard to distinguish different places, e.g. streets in a city, from each other. The imaged appearance of a place can change drastically due to factors such as  viewpoint, illumination or even changes over time.
+This is an important problem with practical applications in robotics, augmented reality or navigation. This task is however very difficult. It is hard to distinguish different places, e.g.\ streets in a city, from each other. The imaged appearance of a place can change drastically due to factors such as  viewpoint, illumination or even changes over time.
 %
-Finally, with the emergence of planet-scale geotagged image collections, such as Google Street-view, the image databases are becoming very large.   
-We estimate a single country like France is covered by more than 60 million street-level panoramas. Hence the fundamental challenge in place recognition lies now in designing robust, discriminative yet compact image representations.
+Finally, with the emergence of planet-scale geotagged image collections, such as Google Street-view, the image databases are becoming very large. We estimate a single country like France is covered by more than 60 million street-level panoramas. Hence the fundamental challenge in place recognition lies now in designing robust, discriminative, yet compact, image representations.
 
-In this work we build on the method of Gronat {\it et al.}~\cite{Gronat13} who represent each image in the database by a per-location classifier
-that is trained to discriminate each place from other places in the database. At query time, the query image is classified by all per-location classifiers and assigned to a place with the highest classification score. The training of each classifier is performed using the per-exemplar support vector machine (e-SVM)~\cite{Malisiewicz11}, which takes the positive image as a single positive example and other far away images in the database as negative examples. 
-The exemplar SVM is well suited for this task as street-level image collections typically contain only one or at most hand-full of images depicting the same place. The intuition is that the exemplar SVM can learn the important features that distinguish the particular place from other similar places  in the database.  While the results of~\cite{Gronat13} are promising they suffer from two important drawbacks. First, the learnt place specific representation is not compact, which prohibits its application to planet-scale street-level collections that are now becoming available~\cite{Klinger13}. Second, the per-exemplar classifiers require careful and time-consuming calibration.
+In this work we build on the method of Gronat {\it et al.}~\cite{Gronat13} who represent each image in the database by a per-location classifier that is trained to discriminate each place from other places in the database. At query time, the query image is classified by all per-location classifiers and assigned to a place with the highest classification score. The training of each classifier is performed using the per-exemplar support vector machine (e-SVM)~\cite{Malisiewicz11}, which takes the positive image as a single positive example and other far away images in the database as negative examples. 
+The exemplar SVM is well suited for this task as street-level image collections typically contain only one or at most a hand-full of images depicting the same place. The intuition is that the exemplar SVM can learn the important features that distinguish the particular place from other similar places  in the database.  While the results of~\cite{Gronat13} are promising they suffer from two important drawbacks. First, the learnt place specific representation is not compact, which prohibits its application to planet-scale street-level collections that are now becoming available~\cite{Klinger13}. Second, the per-exemplar classifiers require careful and time-consuming calibration.
 
 
 In this work we address both these issues. 
@@ -84,24 +82,26 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Large-scale visual place recognition} %\vspace{-3mm}
-    The visual localization problem is typically treated as large-scale instance-level retrieval~\cite{Cummins09,Chen11,Gronat13,Knopp2010,Schindler07,Torii2013,Zamir10}, where images are represented using local invariant features~\cite{Lowe04} aggregated into the bag-of-visual-words~\cite{Csurka04,Sivic03} representation. The image database can be further augmented by 3D point clouds~\cite{Klinger13}, automatically reconstructed by large-scale structure from motion (SfM)~\cite{Agarwal-ICCV-2009,Klinger13}, which enables accurate prediction of query image camera position~\cite{Li12,Sattler12}. In this work we investigate learning a discriminative representation using the compact Fisher vector descriptors~\cite{Jegou12}. Fisher vector descriptors have shown excellent place recognition accuracy~\cite{Torii2013}. In this work we further improve their performance by discriminative learning.
+    The visual localization problem is typically treated as a large-scale instance-level retrieval~\cite{Cummins09,Chen11,Gronat13,Knopp2010,Schindler07,Torii2013,Zamir10}, where images are represented using local invariant features~\cite{Lowe04} aggregated into the bag-of-visual-words~\cite{Csurka04,Sivic03} representation. The image database can be further augmented by 3D point clouds~\cite{Klinger13}, automatically reconstructed by large-scale structure from motion (SfM)~\cite{Agarwal-ICCV-2009,Klinger13}, which enables accurate prediction of query image camera position~\cite{Li12,Sattler12}. In this work we investigate learning a discriminative representation using the compact Fisher vector descriptors~\cite{Jegou12}. Fisher vector descriptors have shown excellent place recognition accuracy~\cite{Torii2013}. In this work we further improve their performance by discriminative learning.
 
 
 
 \paragraph{Fisher vector image representations} %\vspace{-3mm}
-    Fisher vector image representations have recently demonstrated excellent performance for a number of visual recognition tasks~\cite{Chatfield11,Jegou12,Krapac2011,Simonyan2013}. They are specially suited for retrieval applications since they are robust to image appearance variations and capture richer image statistics than the simple bag-of-visual-words (BOW) aggregation. However, the raw extracted Fisher vectors are typically high-dimensional, e.g.\ with 32,768 non-sparse dimensions, which is impractical for large-scale visual recognition and indexing applications. Hence, their dimensionality is often reduced by principal component analysis (PCA) and further quantized for efficient indexing using, e.g.\, a product quantizer~\cite{Jegou12}.  Other recent work has demonstrated improved performance in a face recognition application by finding discriminative projection using a large amount of training face data~\cite{Simonyan2013}. Our work is complementary to these methods as it operates on the projected low-dimensional descriptor and further learns discriminative re-weighting of the descriptor specific to each image in the database using per-exemplar support vector machine~\cite{Malisiewicz11}.
+    Fisher vector image representations have recently demonstrated excellent performance for a number of visual recognition tasks~\cite{Chatfield11,Jegou12,Krapac2011,Simonyan2013}. They are specially suited for retrieval applications since they are robust to image appearance variations and capture richer image statistics than the simple bag-of-visual-words (BOW) aggregation. However, the raw extracted Fisher vectors are typically high-dimensional, e.g.\ with 32,768 non-sparse dimensions, which is impractical for large-scale visual recognition and indexing applications. Hence, their dimensionality is often reduced by principal component analysis (PCA) and further quantized for efficient indexing using, e.g.\ a product quantizer~\cite{Jegou12}.  Other recent work has demonstrated improved performance in a face recognition application by finding discriminative projection using a large amount of training face data~\cite{Simonyan2013}. Our work is complementary to these methods as it operates on the projected low-dimensional descriptor and further learns discriminative re-weighting of the descriptor specific to each image in the database using per-exemplar support vector machine~\cite{Malisiewicz11}.
 
 \paragraph{Per-exemplar support vector machine} %\vspace{-3mm}
     The exemplar support vector machine (e-SVM) has been used in a number of visual recognition tasks including category-level recognition~\cite{Malisiewicz11}, cross-domain retrieval~\cite{Shrivastava11}, scene parsing~\cite{Tighe13}, place recognition~\cite{Gronat13} or as an initialization  for more complex discriminative clustering models~\cite{Doersch12,Singh12}. The main idea is to train a linear support vector machine (SVM) classifier from a single positive example and a large number of negatives. The intuition is that the resulting weight vector will give a higher weight to the discriminative dimensions of the positive training data point and will down weight dimensions that are non-discriminative with respect to the negative training data. A key advantage is that each per-exemplar classifier can be trained independently and hence the learning can be heavily parallelized. The per-exemplar training brings however also an important drawback. As each classifier is trained independently a careful calibration of the resulting classifier scores is required~\cite{Gronat13,Malisiewicz11}. 
 
 \paragraph{Contributions} %\vspace{-3mm}
     The contributions of this work are threefold.
-    First, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Second, we demonstrate that after an appropriate normalization of the new re-weighted descriptor no further calibration is necessary. Third, we apply e-SVM training to compact Fisher vector descriptors for large-scale place recognition resulting in a {\em discriminative} yet {\em compact} representation of each image in the database. Place recognition results are shown on a dataset of 25k images of Pittsburgh and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions.
+    First, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Secondly, we demonstrate that after an appropriate normalization of the new re-weighted descriptor no further calibration is necessary. Finally, we apply e-SVM training to compact Fisher vector descriptors for large-scale place recognition resulting in a {\em discriminative} yet {\em compact} representation of each image in the database. Place recognition results are shown on a dataset of 25k images of Pittsburgh and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions.
 
 
 \section{Learning compact place descriptors using per-exemplar SVM}
 \label{sec:perExemplar}
-   Each database image $j$ is represented by its L2-normalized Fisher vector $\Phi_j$. The goal is to learn a set of new L2-normalized Fisher vectors $\Psi_j$, one per each database image, such that at query time, given the Fisher vector $\Phi_q$ of an unknown query image, we retrieve the database image depicting the same location by finding the image $j^*$ with the highest score measured by a dot product
+   Each database image $j$ is represented by its L2-normalized Fisher vector $\Phi_j$. The goal is to learn a set of new L2-normalized Fisher vectors $\Psi_j$, one per each database image.
+   % such that at query time, 
+   \textcolor{maroon}{At query time,} given the Fisher vector $\Phi_q$ of an unknown query image, we retrieve the database image depicting the same location by finding the image $j^*$ with the highest score measured by a dot product
    %
    \begin{equation}
        j^*=\operatorname*{arg\;max}_{j} \Phi_q^T \Psi_j. 
@@ -110,17 +110,17 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
    %  
    In other words, the aim is to replace each original database Fisher vector $\Phi_j$ with a new vector $\Psi_j$ that is more discriminative in the sense of separation from descriptors of images depicting other places. Inspired by~\cite{Gronat13}, we investigate applying the exemplar support vector machine (e-SVM)~\cite{Malisiewicz11} for this task. e-SVM learns a linear classifier $w_j^T\Phi+b_j$ given the descriptor $\Phi_j^+$ of place $j$ as a single positive example (with target label +1) and a large number of negative descriptors $\mathcal N_j$ from other places in the database (with target labels -1). The intuition of the exemplar SVM training~\cite{Malisiewicz11} is that the learnt weight vector $w_j$ will give a higher weight to the dimensions of the descriptor that are discriminative and will down-weight dimensions that are non-discriminative with respect to the negative training data collected from other far-away places.  The optimal $w_j$ and $b_j$ are obtained by minimizing the following objective  
       %
-      \begin{equation}
-         ||w_j||^{2} +C_1 \cdot h
+      \begin{align}
+         \label{eq:obj}
+         ||w_j||^{2} &+C_1 \cdot h
             \left(
                w_j^T\Phi^+_j+b_j
-            \right)
-            +C_2\sum_{\Phi\in \mathcal N_j}h
+            \right)  \\ \nonumber
+            &+C_2\sum_{\Phi\in \mathcal N_j}h
             \left(
                -w_j^T\Phi-b_j
-            \right),   
-         \label{eq:obj} 
-      \end{equation}
+            \right),    
+      \end{align}
       %
    where $\Phi^+_j$ is the descriptor of the place $j$ as the positive data point, $\Phi$ are Fisher descriptors from negative training data $\mathcal N_j$ and $h$ is the hinge loss, $h(y) = \max(1-y,0)$. Note that the first term in~(\ref{eq:obj}) is the regularizer, the second term is the loss on the positive data weighted by scalar parameter $C_1$ and the third term is the loss on the negative data weighted by scalar parameter $C_2$. The objective is convex and can be minimized with respect to $w_j$ and $b_j$ using standard software packages such as~\cite{libsvm}. A key advantage is that the per-exemplar classifier for each place can be trained independently and hence the learning can be heavily parallelized. The downside of the independent training for each positive example is that the resulting scores have to be calibrated with respect to each other on additional data~\cite{Gronat13,Malisiewicz11}.
    
@@ -130,7 +130,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
       Details are given next.
 
       \paragraph{Case I: $C_2\rightarrow 0$.}
-         The goal is to show that when the weight  $C_2$ of the negative data in objective~\eqref{eq:obj} goes towards zero the resulting hyperplane vector $w_j$ is parallel with the positive training descriptor $\Phi_j^+$. When $w_j$ is normalized to have unit L2 norm the two vectors are identical. First, let us decompose $w$ into parallel and orthogonal part with respect to the positive training data point $\Phi^+$ (in the following we omit index $j$ for brevity), i.e. $w=w^{\perp}+w^{||}$, where $(w^{\perp})^T \Phi^+ = 0$. Next, we observe that when the weight of the negative data diminishes ($C_2\rightarrow 0$), any non-zero component $w^{\perp}$ will increase the value of the objective. As a result, for $C_2\rightarrow 0$ the objective is minimized by $w^{||}$, i.e.\ the optimal $w$ is parallel with $\Phi^+$.
+         The goal is to show that when the weight  $C_2$ of the negative data in objective~\eqref{eq:obj} goes towards zero, the resulting hyperplane vector $w_j$ is parallel with the vector of positive training descriptor $\Phi_j^+$. When $w_j$ is normalized to have unit L2 norm the two vectors are identical. First, let us decompose $w$ into parallel and orthogonal part with respect to the positive training data point $\Phi^+$ (in the following we omit index $j$ for brevity), i.e. $w=w^{\perp}+w^{||}$, where $(w^{\perp})^T \Phi^+ = 0$. Next, we observe that when the weight of the negative data diminishes ($C_2\rightarrow 0$), any non-zero component $w^{\perp}$ will increase the value of the objective. As a result, for $C_2\rightarrow 0$ the objective is minimized by $w^{||}$, i.e.\ the optimal $w$ is parallel with $\Phi^+$.
 
          In detail, for $w=w^{\perp}+w^{||}$ the objective~(\ref{eq:obj}) can be written as
             %
@@ -289,10 +289,13 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
                   recall@K [$\%$] & 1 & 2 & 5 & 10 & 20 & 1 & 2 & 5 & 10 & 20\\
                   \hline
                   \rowcolor{maroon!10}
-                  BOW & 29.4 & 35.7 & 47.0 & 57.1 & 66.5 & 8.7 & 11.0 & 17.3 & 22.8 & 25.4  \\
+                  BOW         & 29.4 & 35.7 & 47.0 & 57.1 & 66.5 & 8.7 & 11.0 & 17.3 & 22.8 & 25.4  \\
+                  BOW raw SVM & 6.4  &  8.1 & 13.5 & 17.5 & 20.5 & & & & & \\ 
+                  BOW e-SVM   & 32.2 & 37.3 & 46.2 & 54.4 & 63.3 & & & & & \\
                     \hline
                   \rowcolor{maroon!10}
                   FV128         & 33.6 & 41.8 & 52.0 & 59.8 & 67.7 & 10.9 & 14.1 & 20.2 & 26.4 & 33.2 \\
+                  FV128 raw SVM & 32.4 & 41.1 & 52.6 & 60.4 & 68.4 & & & & & \\
                   \rowcolor{maroon!10}
                   \textbf{FV128 e-SVM}   & \textbf{37.8}  & \textbf{46.1} & \textbf{56.9} & \textbf{64.9} & \textbf{72.6}  &
                                              \textbf{13.5}  &  \textbf{17.7}  &  \textbf{25.0}  &  \textbf{31.8}  &  \textbf{39.0} \\

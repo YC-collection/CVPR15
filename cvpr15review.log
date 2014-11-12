@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.8.7)  10 NOV 2014 12:48
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.8.7)  12 NOV 2014 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -486,14 +486,14 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
 
-Underfull \hbox (badness 1178) in paragraph at lines 87--88
+Underfull \hbox (badness 1178) in paragraph at lines 85--86
 \OT1/ptm/m/n/10 clouds [[]][], au-to-mat-i-cally re-con-structed by large-scale
 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 88.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 86.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
@@ -503,7 +503,7 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 Underfull \vbox (badness 1337) has occurred while \output is active []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 104--106
+Underfull \hbox (badness 2460) in paragraph at lines 102--106
 []\OT1/ptm/m/n/10 Each database im-age $\OML/cmm/m/it/10 j$ \OT1/ptm/m/n/10 is 
 rep-re-sented by its L2-
  []
@@ -969,7 +969,7 @@ Overfull \hbox (46.61525pt too wide) in paragraph at lines 2--269
 LaTeX Warning: Float too large for page by 16.991pt on input line 276.
 
 
-Overfull \hbox (1.7775pt too wide) in alignment at lines 312--312
+Overfull \hbox (5.24747pt too wide) in alignment at lines 315--315
 [][][][][][][][][][][] 
  []
 
@@ -1019,26 +1019,26 @@ Underfull \hbox (badness 1838) in paragraph at lines 52--52
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¡ in font ptmr7t!
 [7])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 441.
  [8
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 441.
  (./cvpr15review.aux (./myFigureWnorm.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 438.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 441.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 441.
 Package rerunfilecheck Info: File `cvpr15review.brf' has not changed.
 (rerunfilecheck)             Checksum: 7EF59933D552174E172505DE834D8C22;2233.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 441.
  ) 
 Here is how much of TeX's memory you used:
  8479 strings out of 493493
  128507 string characters out of 3143798
- 246524 words of memory out of 3000000
+ 248609 words of memory out of 3000000
  11512 multiletter control sequences out of 15000+200000
  34578 words of font info for 76 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,13n,45p,1254b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,13n,45p,1253b,449s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -1056,7 +1056,7 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 elvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on cvpr15review.pdf (8 pages, 5045409 bytes).
+Output written on cvpr15review.pdf (8 pages, 5045651 bytes).
 PDF statistics:
  497 PDF objects out of 1000 (max. 8388607)
  368 compressed objects within 4 object streams
