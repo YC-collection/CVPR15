@@ -1,0 +1,114 @@
+We thank reviewers for their time and valuable comments. We will
+update the paper as outlined below.
+
+Why L2 normalization works (R18,R34,R38)
+The proposed re-normalization procedure can be interpreted as a simple
+form of affine calibration where the uncalibrated SVM score s(x) = w^T
+x + b is transformed into a calibrated score f(x) = alpha * s(x) +
+beta, where alpha = 1/||w|| and beta = -b*alpha. Note that the bias
+term b is not ignored but used to compute f(x). The intuition is that
+for L2 normalized descriptors x computing the calibrated score f(x)
+corresponds to computing the normalized cross-correlation between
+vectors w and x. This was found to work well in retrieval (see e.g.
+Sivic and Zisserman, ICCV 2003 [32]) or matching whitened HOG
+descriptors [11,13] (see e.g. [Doersch et al., Mid-Level Visual
+Element Discovery as discriminative Mode Seeking, NIPS 2013]), but has
+not yet been used in conjunction with SVMs as done in this work. Note
+also that the affine calibration can be computed offline and does not
+need any additional computation or storage at query time compared to
+the p-value calibration of Gronat et al. [12].
+
+-> Section 3.2
+
+Comparison with p-value calibration of Gronat et al. [12] (R18,R34,R38)
+We have compared the proposed method with the p-value calibration of
+(Gronat et al.[12]) applied to Fisher vectors. The results show that
+our method significantly outperforms the p-value calibration (37.8%
+recall@1 vs. 32.3% recall@1; 56.9% recall@5 vs. 50.0% recall@5) for
+the Fisher vector of dimension 128. Similar gains are observed for
+other FV dimensions.
+
+-> Now in tables. Please discuss in "Comparison to other methods"
+
+Applying the proposed method to other descriptors (R18, R38)
+The proposed approach can be applied to other descriptors beyond
+Fisher vectors. To demonstrate this we have applied the proposed
+calibration by re-normalization to the bag-of-visual-words descriptor
+used in (Gronat et al.[12]) and observed improvement from 29.4%
+recall@K=1 (vanilla bag-of-visual-words) to 32.6% recall@K=1 (e-SVM
+with the proposed calibration by renormalization). For
+bag-of-visual-words, the e-SVM with p-value calibration gives
+comparable results (33.6% recall@K=1) but at an increased training
+cost and a significantly higher required memory footprint at query
+time, which makes the method very hard to scale-up to database sizes
+beyond 200k images.
+
+-> Create new paragraph in the result section "Applying the proposed
+method to other descriptors".
+Refer to table.
+
+
+Significance
+- The exemplar SVM has been recently used for a number of recognition
+task. This paper describes a simple procedure to avoid calibration of
+the exemplar SVM score at query time by re-normalizing the learnt SVM
+weights.
+
+- We demonstrate that proposed method is applicable to two different
+descriptors, the bag-of-visual-words and Fisher vectors.
+-> Conclusion
+
+- We show the method performs on par or better than other competing
+calibration methods for the task of large-scale place recognition.
+
+- We believe the paper is significant and could be adopted by others
+because the method is simple, scalable, does not require additional
+storage or computation at query time and could be applied for other
+tasks that use exemplar SVM beyond the addressed place recognition
+application.
+
+
+
+
+Rejecting query images that are out of the database (R18)
+We agree with R18 that the method cannot reject query images that are
+out of the database. Similar to other retrieval methods, we address a
+ranking problem and not a classification one. Given a query image the
+goal is to create a ranked list of N best candidate images. These
+candidates can be further verified by another more expensive method
+(e.g. geometric verification [Philbin et al., Object retrieval with
+large vocabularies and fast spatial matching, CVPR 2007, Knopp et al.,
+Avoiding confusing features in place recognition, ECCV 2010 ]) to
+reject false positives or to reject a query that comes from an unseen
+place.
+
+
+Other comments:
+- Correction to figure 4 (R34)
+Reviewer R34 is right, both the second (1st row) and the third (2nd
+row) retrieved images for the second query example should be marked as
+wrong. We will correct the figure for the next revision.
+done
+
+- Clarification of comparison to other works, L313-315 (R34)
+We compare our method to the results from [12] who re-implemented [17]
+and reported the results on the Pittsburgh 25k dataset.
+results are in tables.
+
+- Notation (R34)
+We will improve the notation by showing vectors as bolds following the
+suggestion from R34.
+-> todo?
+
+- Lower performance for high dimensional FV (R34)
+It is known that dimensionality reduction can have a positive effect
+on the FV performance, where lower dimensional descriptors can
+outperform higher dimensional descriptors. This is a known effect also
+observed in previous work, see e.g. Table 1 in [15].
+- add comment to result section with a citaiton.
+
+- Details of the bag-of-visual-words experiment (R38)
+We use the same setup as [12] except that our descriptors are
+rootSIFTs instead of SURFs used in [12].
+
+-> Make sure we mention what do.

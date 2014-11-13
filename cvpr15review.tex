@@ -30,6 +30,7 @@
 \definecolor{myRed}{HTML}{FF3333}
 \definecolor{myGreen}{HTML}{33FF33}
 \definecolor{maroon}{cmyk}{0,0.87,0.68,0.32}
+\definecolor{petr}{HTML}{3333FF}
 
 % Pages are numbered in submission mode, and unnumbered in camera-ready
 \ifcvprfinal\pagestyle{empty}\fi
@@ -81,18 +82,18 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 \label{sec:related}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\paragraph{Large-scale visual place recognition} %\vspace{-3mm}
+\paragraph{Large-scale visual place recognition.} %\vspace{-3mm}
     The visual localization problem is typically treated as a large-scale instance-level retrieval~\cite{Cummins09,Chen11,Gronat13,Knopp2010,Schindler07,Torii2013,Zamir10}, where images are represented using local invariant features~\cite{Lowe04} aggregated into the bag-of-visual-words~\cite{Csurka04,Sivic03} representation. The image database can be further augmented by 3D point clouds~\cite{Klinger13}, automatically reconstructed by large-scale structure from motion (SfM)~\cite{Agarwal-ICCV-2009,Klinger13}, which enables accurate prediction of query image camera position~\cite{Li12,Sattler12}. In this work we investigate learning a discriminative representation using the compact Fisher vector descriptors~\cite{Jegou12}. Fisher vector descriptors have shown excellent place recognition accuracy~\cite{Torii2013}. In this work we further improve their performance by discriminative learning.
 
 
 
-\paragraph{Fisher vector image representations} %\vspace{-3mm}
+\paragraph{Fisher vector image representations.} %\vspace{-3mm}
     Fisher vector image representations have recently demonstrated excellent performance for a number of visual recognition tasks~\cite{Chatfield11,Jegou12,Krapac2011,Simonyan2013}. They are specially suited for retrieval applications since they are robust to image appearance variations and capture richer image statistics than the simple bag-of-visual-words (BOW) aggregation. However, the raw extracted Fisher vectors are typically high-dimensional, e.g.\ with 32,768 non-sparse dimensions, which is impractical for large-scale visual recognition and indexing applications. Hence, their dimensionality is often reduced by principal component analysis (PCA) and further quantized for efficient indexing using, e.g.\ a product quantizer~\cite{Jegou12}.  Other recent work has demonstrated improved performance in a face recognition application by finding discriminative projection using a large amount of training face data~\cite{Simonyan2013}. Our work is complementary to these methods as it operates on the projected low-dimensional descriptor and further learns discriminative re-weighting of the descriptor specific to each image in the database using per-exemplar support vector machine~\cite{Malisiewicz11}.
 
-\paragraph{Per-exemplar support vector machine} %\vspace{-3mm}
+\paragraph{Per-exemplar support vector machine.} %\vspace{-3mm}
     The exemplar support vector machine (e-SVM) has been used in a number of visual recognition tasks including category-level recognition~\cite{Malisiewicz11}, cross-domain retrieval~\cite{Shrivastava11}, scene parsing~\cite{Tighe13}, place recognition~\cite{Gronat13} or as an initialization  for more complex discriminative clustering models~\cite{Doersch12,Singh12}. The main idea is to train a linear support vector machine (SVM) classifier from a single positive example and a large number of negatives. The intuition is that the resulting weight vector will give a higher weight to the discriminative dimensions of the positive training data point and will down weight dimensions that are non-discriminative with respect to the negative training data. A key advantage is that each per-exemplar classifier can be trained independently and hence the learning can be heavily parallelized. The per-exemplar training brings however also an important drawback. As each classifier is trained independently a careful calibration of the resulting classifier scores is required~\cite{Gronat13,Malisiewicz11}. 
 
-\paragraph{Contributions} %\vspace{-3mm}
+\paragraph{Contributions.} %\vspace{-3mm}
     The contributions of this work are threefold.
     First, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Secondly, we demonstrate that after an appropriate normalization of the new re-weighted descriptor no further calibration is necessary. Finally, we apply e-SVM training to compact Fisher vector descriptors for large-scale place recognition resulting in a {\em discriminative} yet {\em compact} representation of each image in the database. Place recognition results are shown on a dataset of 25k images of Pittsburgh and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions.
 
@@ -101,7 +102,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 \label{sec:perExemplar}
    Each database image $j$ is represented by its L2-normalized Fisher vector $\Phi_j$. The goal is to learn a set of new L2-normalized Fisher vectors $\Psi_j$, one per each database image.
    % such that at query time, 
-   \textcolor{maroon}{At query time,} given the Fisher vector $\Phi_q$ of an unknown query image, we retrieve the database image depicting the same location by finding the image $j^*$ with the highest score measured by a dot product
+   \textcolor{petr}{At query time,} given the Fisher vector $\Phi_q$ of an unknown query image, we retrieve the database image depicting the same location by finding the image $j^*$ with the highest score measured by a dot product
    %
    \begin{equation}
        j^*=\operatorname*{arg\;max}_{j} \Phi_q^T \Psi_j. 
@@ -202,6 +203,10 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
             \Psi_j=\dfrac{w_j}{||w_j||}.
          \end{equation}
 
+      \textcolor{petr}{
+        The proposed re-normalization procedure can be interpreted as a simple form of affine calibration where the uncalibrated SVM score $s(x)=w^T x+b$ is transformed into a calibrated score $f(x)=\alpha s(x)+\beta$, where $\alpha = 1/||w||$ and $\beta = -b\alpha$. Note that the bias term b is not ignored but used to compute $f(x)$. The intuition is that for L2 normalized descriptors x computing the calibrated score $f(x)$ corresponds to computing the normalized cross-correlation between vectors w and x. This was found to work well in retrieval (see e.g. Sivic and Zisserman, ICCV 2003 [32]) or matching whitened HOG descriptors [11,13] (see e.g. [Doersch et al., Mid-Level Visual Element Discovery as discriminative Mode Seeking, NIPS 2013]), but has not yet been used in conjunction with SVMs as done in this work. Note also that the affine calibration can be computed offline and does not need any additional computation or storage at query time compared to the p-value calibration of Gronat et al. [12].
+      }
+
 
 
 \section{Experimental evaluation}
@@ -245,9 +250,17 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
       We perform experiments on several target Fisher vector dimensions $d\in\{128,512,2048\}$. For each method we measure performance using the percentage of correctly recognized queries (Recall) similarly to, e.g.,~\cite{Chen11,Knopp2010,Sattler-BMVC12}. The query is correctly localized if at least one of the top $K$ retrieved database images is within $20$ meters from the ground truth position of the query. Results are shown for different values of $K$ in table~\ref{tab:recall}. For the Pittsburgh 25k we also show results in the form of a curve in figure~\ref{fig:recall}. The results clearly demonstrate the benefits of the learnt descriptors with respect to the standard Fisher vectors for all target dimensions and lengths of shortlist $K$. The benefits of discriminative learning are specially prominent for low-dimensional compact descriptors ($d=128$). 
       The proposed method also significantly outperforms the bag-of-visual-words baseline. Figure~\ref{fig:images} shows examples of place recognition results. 
 
+      \paragraph{Applying the proposed method to other descriptors}
+        \textcolor{petr}{TODO:  
+          Applying the proposed method to other descriptors (R18, R38) The proposed approach can be applied to other descriptors beyond Fisher vectors. To demonstrate this we have applied the proposed calibration by re-normalization to the bag-of-visual-words descriptor used in (Gronat et al.[12]) and observed improvement from 29.4\% recall@K=1 (vanilla bag-of-visual-words) to 32.6\% recall@K=1 (e-SVM with the proposed calibration by renormalization). For bag-of-visual-words, the e-SVM with p-value calibration gives comparable results (33.6\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method very hard to scale-up to database sizes beyond 200k images.
+        }
+
       \paragraph{Comparison to other methods.}
          On the Pittsburgh 25k database, we compare performance of our learnt discriminative descriptors to the methods of~\cite{Gronat13} and~\cite{Knopp2010}, who report on the same testing data top $K=1$ recall of 36.5\% and 41.9\%, respectively (results taken from~\cite{Gronat13}). Our method outperforms~\cite{Knopp2010} already for dimension $d=128$ (37.8\%) and~\cite{Gronat13} for dimension $d=512$ (47.6\%). Furthermore, note that~\cite{Gronat13,Knopp2010} are based on a bag-of-visual-words representation, which typically needs to store between 1000-2000 non-zero visual words per image, which is significantly more than our learnt 128 or 512 dimensional descriptor. 
-         
+
+        \textcolor{petr}{ TODO:
+          We have compared the proposed method with the p-value calibration of (Gronat et al.[12]) applied to Fisher vectors. The results show that our method significantly outperforms the p-value calibration (37.8\% recall@1 vs. 32.3\% recall@1; 56.9\% recall@5 vs. 50.0\% recall@5) for the Fisher vector of dimension 128. Similar gains are observed for other FV dimensions.
+        }
       \paragraph{Memory complexity analysis.}
          Figure~\ref{fig:memory} compares the performance of the learnt discriminative descriptor (FV eSVM) to the raw Fisher vectors (FV) for different target dimensions. 
          The results demonstrate that for a given level of accuracy (y-axis) our method learns a more compact (lower-dimensional) representation (x-axis). For example, our learnt 128-dimensional descriptor achieves a similar accuracy (around 65\%) to the 256-dimensional raw Fisher descriptor essentially reducing the memory complexity to 50\% for the same level of performance.  Note that 
@@ -431,7 +444,9 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
          %
          %
    \section{Conclusions}
-      We have shown that a discriminative yet compact image representation for place recognition can be learnt using the exemplar support vector machine applied to Fisher vector image descriptors without the need for expensive and tedious calibration typical for other exemplar support vector machine methods. Our results show significant gains in place recognition performance compared to raw Fisher vector matching as well as other baselines. Our work opens-up the possibility of learning a compact and discriminative representation using other descriptors such as HOG~\cite{Dalal05} or the recently developed convolutional neural network features~\cite{Donahue13,Krizhevsky12,Oquab14,Sermanet13} as well as extending the analysis to other cost functions~\cite{Gharbi12,Hariharan12}. 
+      We have shown that a discriminative yet compact image representation for place recognition can be learnt using the exemplar support vector machine applied to Fisher vector image descriptors without the need for expensive and tedious calibration typical for other exemplar  support vector machine methods. 
+      \textcolor{petr}{We demonstrate that proposed method is applicable to two different descriptors, the bag-of-visual-words and Fisher vectors.}
+      Our results show significant gains in place recognition performance compared to raw Fisher vector matching as well as other baselines. Our work opens-up the possibility of learning a compact and discriminative representation using other descriptors such as HOG~\cite{Dalal05} or the recently developed convolutional neural network features~\cite{Donahue13,Krizhevsky12,Oquab14,Sermanet13} as well as extending the analysis to other cost functions~\cite{Gharbi12,Hariharan12}. 
 
 \small{
    \bibliographystyle{ieee}
