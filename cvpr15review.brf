@@ -40,7 +40,8 @@
 \backcite {Knopp2010}{{5}{4.3}{section*.11}}
 \backcite {Gronat13}{{5}{4.3}{section*.11}}
 \backcite {Gronat13,Knopp2010}{{5}{4.3}{section*.11}}
+\backcite {Gronat13}{{5}{4.3}{section*.11}}
 \backcite {Jegou12}{{5}{4.3}{section*.12}}
-\backcite {Dalal05}{{7}{5}{section.5}}
-\backcite {Donahue13,Krizhevsky12,Oquab14,Sermanet13}{{7}{5}{section.5}}
-\backcite {Gharbi12,Hariharan12}{{7}{5}{section.5}}
+\backcite {Dalal05}{{5}{5}{section.5}}
+\backcite {Donahue13,Krizhevsky12,Oquab14,Sermanet13}{{6}{5}{section.5}}
+\backcite {Gharbi12,Hariharan12}{{6}{5}{section.5}}

@@ -1,11 +1,21 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.6.2)  13 NOV 2014 11:16
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.8.7)  13 NOV 2014 14:46
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **cvpr15review.tex
 (./cvpr15review.tex
 LaTeX2e <2011/06/27>
-Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, et
+hiopic, farsi, arabic, pinyin, croatian, bulgarian, ukrainian, russian, slovak,
+ czech, danish, dutch, usenglishmax, ukenglish, finnish, french, basque, ngerma
+n, german, swissgerman, ngerman-x-2012-05-30, german-x-2012-05-30, monogreek, g
+reek, ibycus, ancientgreek, hungarian, bengali, tamil, hindi, telugu, gujarati,
+ sanskrit, malayalam, kannada, assamese, marathi, oriya, panjabi, italian, lati
+n, latvian, lithuanian, mongolian, mongolianlmc, nynorsk, bokmal, indonesian, e
+speranto, coptic, welsh, irish, interlingua, serbian, serbianc, slovenian, friu
+lan, romansh, estonian, romanian, armenian, uppersorbian, turkish, afrikaans, i
+celandic, kurmanji, polish, portuguese, galician, catalan, spanish, swedish, lo
+aded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -89,7 +99,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfysize=\dimen109
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
@@ -109,20 +119,20 @@ Package: amsbsy 1999/11/29 v1.2d
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count93
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 211.
 \uproot@=\count94
 \leftroot@=\count95
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 307.
 \classnum@=\count96
 \DOTSCASE@=\count97
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box28
 \strutbox@=\box29
 \big@size=\dimen112
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count98
 \c@MaxMatrixCols=\count99
 \dotsspace@=\muskip10
@@ -143,18 +153,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip46
 \multlinetaggap=\skip47
 \mathdisplay@stack=\toks19
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
+Package: amssymb 2009/06/22 v3.00
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
@@ -233,18 +243,16 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 \subfig@bottom=\skip53
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 57.
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 \captionmargin=\dimen121
 \captionmargin@=\dimen122
 \captionwidth=\dimen123
-\caption@tempdima=\dimen124
-\caption@indent=\dimen125
-\caption@parindent=\dimen126
-\caption@hangindent=\dimen127
+\caption@indent=\dimen124
+\caption@parindent=\dimen125
+\caption@hangindent=\dimen126
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 )
@@ -265,17 +273,17 @@ Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen128
-\extrarowheight=\dimen129
+\col@sep=\dimen127
+\extrarowheight=\dimen128
 \NC@list=\toks21
 \extratabsurround=\skip54
 \backup@length=\skip55
 )
-\TX@col@width=\dimen130
-\TX@old@table=\dimen131
-\TX@old@col=\dimen132
-\TX@target=\dimen133
-\TX@delta=\dimen134
+\TX@col@width=\dimen129
+\TX@old@table=\dimen130
+\TX@old@col=\dimen131
+\TX@target=\dimen132
+\TX@delta=\dimen133
 \TX@cols=\count110
 \TX@ftn=\toks22
 )
@@ -303,8 +311,13 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
+(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+\langwohyphens=\language75
+LaTeX Info: Redefining \_ on input line 43.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+Package: hyperref 2012/05/13 v6.82q Hypertext links for LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
@@ -343,37 +356,34 @@ Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
-)
-\@linkdim=\dimen135
+\@linkdim=\dimen134
 \Hy@linkcounter=\count112
 \Hy@pagecounter=\count113
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2012/05/13 v6.82q Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count114
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 4319.
+Package hyperref Info: Option `breaklinks' set `true' on input line 3941.
 
 
 Package hyperref Warning: Option `letterpaper' is no longer used.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 4319.
-Package hyperref Info: Option `bookmarks' set `false' on input line 4319.
-Package hyperref Info: Hyper figures OFF on input line 4443.
-Package hyperref Info: Link nesting OFF on input line 4448.
-Package hyperref Info: Hyper index ON on input line 4451.
-Package hyperref Info: Plain pages OFF on input line 4458.
-Package hyperref Info: Backreferencing ON on input line 4461.
+Package hyperref Info: Option `colorlinks' set `true' on input line 3941.
+Package hyperref Info: Option `bookmarks' set `false' on input line 3941.
+Package hyperref Info: Hyper figures OFF on input line 4062.
+Package hyperref Info: Link nesting OFF on input line 4067.
+Package hyperref Info: Hyper index ON on input line 4070.
+Package hyperref Info: Plain pages OFF on input line 4077.
+Package hyperref Info: Backreferencing ON on input line 4080.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks OFF on input line 4694.
+Package hyperref Info: Bookmarks OFF on input line 4306.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/backref.sty
-Package: backref 2012/07/25 v1.38 Bibliographical back referencing
+Package: backref 2010/08/30 v1.36 Bibliographical back referencing
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -386,20 +396,19 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen136
+LaTeX Info: Redefining \url on input line 4653.
 \Fld@menulength=\count116
-\Field@Width=\dimen137
-\Fld@charsize=\dimen138
-Package hyperref Info: Hyper figures OFF on input line 6295.
-Package hyperref Info: Link nesting OFF on input line 6300.
-Package hyperref Info: Hyper index ON on input line 6303.
-Package hyperref Info: backreferencing ON on input line 6308.
-Package hyperref Info: Link coloring ON on input line 6313.
-Package hyperref Info: Link coloring with OCG OFF on input line 6320.
-Package hyperref Info: PDF/A mode OFF on input line 6325.
-LaTeX Info: Redefining \ref on input line 6365.
-LaTeX Info: Redefining \pageref on input line 6369.
+\Field@Width=\dimen135
+\Fld@charsize=\dimen136
+Package hyperref Info: Hyper figures OFF on input line 5773.
+Package hyperref Info: Link nesting OFF on input line 5778.
+Package hyperref Info: Hyper index ON on input line 5781.
+Package hyperref Info: backreferencing ON on input line 5786.
+Package hyperref Info: Link coloring ON on input line 5791.
+Package hyperref Info: Link coloring with OCG OFF on input line 5798.
+Package hyperref Info: PDF/A mode OFF on input line 5803.
+LaTeX Info: Redefining \ref on input line 5843.
+LaTeX Info: Redefining \pageref on input line 5847.
 \Hy@abspage=\count117
 \c@Item=\count118
 \c@Hfootnote=\count119
@@ -408,29 +417,29 @@ LaTeX Info: Redefining \pageref on input line 6369.
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+File: hpdftex.def 2012/05/13 v6.82q Hyperref driver for pdfTeX
 \Fld@listcount=\count120
 \c@bookmark@seq@number=\count121
 \Hy@SectionHShift=\skip57
 )
-(./cvpr15review.aux (./myFigureWnorm.aux))
+(./cvpr15review.aux (./table25k.aux) (./table55k.aux) (./myFigureWnorm.aux))
 \openout1 = `cvpr15review.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 38.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -439,13 +448,13 @@ ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count122
-\scratchdimen=\dimen139
+\scratchdimen=\dimen137
 \scratchbox=\box30
 \nofMPsegments=\count123
 \nofMParguments=\count124
 \everyMPshowfont=\toks24
 \MPscratchCnt=\count125
-\MPscratchDim=\dimen140
+\MPscratchDim=\dimen138
 \MPnumerator=\count126
 \makeMPintoPDFobject=\count127
 \everyMPtoPDFconversion=\toks25
@@ -455,41 +464,41 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box31
 Package atbegshi Info: Package `everyshi' patched.
-Package hyperref Info: Link coloring ON on input line 37.
+Package hyperref Info: Link coloring ON on input line 38.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count128
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 60.
-LaTeX Font Info:    Try loading font information for U+msa on input line 60.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 61.
+LaTeX Font Info:    Try loading font information for U+msa on input line 61.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 60.
+LaTeX Font Info:    Try loading font information for U+msb on input line 61.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 62.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 63.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 86.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 87.
 
-Underfull \hbox (badness 1178) in paragraph at lines 86--87
+Underfull \hbox (badness 1178) in paragraph at lines 87--88
 \OT1/ptm/m/n/10 clouds [[]][], au-to-mat-i-cally re-con-structed by large-scale
 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 87.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 88.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
@@ -499,38 +508,38 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 Underfull \vbox (badness 1337) has occurred while \output is active []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 103--107
+Underfull \hbox (badness 2460) in paragraph at lines 104--108
 []\OT1/ptm/m/n/10 Each database im-age $\OML/cmm/m/it/10 j$ \OT1/ptm/m/n/10 is 
 rep-re-sented by its L2-
  []
 
 [2]
 Package epstopdf Info: Source file: <imgs/figSVM01tight.eps>
-(epstopdf)                    date: 2014-11-06 09:51:33
+(epstopdf)                    date: 2014-11-04 15:35:10
 (epstopdf)                    size: 9101 bytes
 (epstopdf)             Output file: <imgs/figSVM01tight-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-11-06 09:51:33
+(epstopdf)                    date: 2014-11-04 15:35:11
 (epstopdf)                    size: 5578 bytes
-(epstopdf)             Command: <epstopdf --outfile=imgs/figSVM01tight-eps-conv
-erted-to.pdf imgs/figSVM01tight.eps>
-(epstopdf)             \includegraphics on input line 182.
+(epstopdf)             Command: <repstopdf --outfile=imgs/figSVM01tight-eps-con
+verted-to.pdf imgs/figSVM01tight.eps>
+(epstopdf)             \includegraphics on input line 183.
 Package epstopdf Info: Output file is already uptodate.
  <imgs/figSVM01tight-eps-converted-to.pdf, id=118, 168.63pt x 149.55875pt>
 File: imgs/figSVM01tight-eps-converted-to.pdf Graphic file (type pdf)
 
 <use imgs/figSVM01tight-eps-converted-to.pdf>
 Package pdftex.def Info: imgs/figSVM01tight-eps-converted-to.pdf used on input 
-line 182.
+line 183.
 (pdftex.def)             Requested size: 106.71045pt x 94.64241pt.
 Package epstopdf Info: Source file: <imgs/figSVM02tight.eps>
-(epstopdf)                    date: 2014-11-06 09:51:33
+(epstopdf)                    date: 2014-11-04 15:35:10
 (epstopdf)                    size: 10184 bytes
 (epstopdf)             Output file: <imgs/figSVM02tight-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-11-06 09:51:33
+(epstopdf)                    date: 2014-11-04 15:35:10
 (epstopdf)                    size: 6231 bytes
-(epstopdf)             Command: <epstopdf --outfile=imgs/figSVM02tight-eps-conv
-erted-to.pdf imgs/figSVM02tight.eps>
-(epstopdf)             \includegraphics on input line 187.
+(epstopdf)             Command: <repstopdf --outfile=imgs/figSVM02tight-eps-con
+verted-to.pdf imgs/figSVM02tight.eps>
+(epstopdf)             \includegraphics on input line 188.
 Package epstopdf Info: Output file is already uptodate.
 
 <imgs/figSVM02tight-eps-converted-to.pdf, id=119, 168.63pt x 149.55875pt>
@@ -538,58 +547,68 @@ File: imgs/figSVM02tight-eps-converted-to.pdf Graphic file (type pdf)
 
 <use imgs/figSVM02tight-eps-converted-to.pdf>
 Package pdftex.def Info: imgs/figSVM02tight-eps-converted-to.pdf used on input 
-line 187.
+line 188.
 (pdftex.def)             Requested size: 106.71045pt x 94.64241pt.
  [3 <./imgs/figSVM01tight-eps-converted-to.pdf> <./imgs/figSVM02tight-eps-conve
 rted-to.pdf>]
-Package epstopdf Info: Source file: <imgs/plotPitt25k.eps>
-(epstopdf)                    date: 2014-11-06 09:51:33
-(epstopdf)                    size: 12196 bytes
-(epstopdf)             Output file: <imgs/plotPitt25k-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-11-06 09:51:33
-(epstopdf)                    size: 8342 bytes
-(epstopdf)             Command: <epstopdf --outfile=imgs/plotPitt25k-eps-conver
-ted-to.pdf imgs/plotPitt25k.eps>
-(epstopdf)             \includegraphics on input line 225.
+Package epstopdf Info: Source file: <imgs/plotPitt25kSURF.eps>
+(epstopdf)                    date: 2014-11-13 14:32:42
+(epstopdf)                    size: 12202 bytes
+(epstopdf)             Output file: <imgs/plotPitt25kSURF-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2014-11-13 14:32:59
+(epstopdf)                    size: 8353 bytes
+(epstopdf)             Command: <repstopdf --outfile=imgs/plotPitt25kSURF-eps-c
+onverted-to.pdf imgs/plotPitt25kSURF.eps>
+(epstopdf)             \includegraphics on input line 227.
 Package epstopdf Info: Output file is already uptodate.
 
-<imgs/plotPitt25k-eps-converted-to.pdf, id=146, 449.68pt x 294.09875pt>
-File: imgs/plotPitt25k-eps-converted-to.pdf Graphic file (type pdf)
+<imgs/plotPitt25kSURF-eps-converted-to.pdf, id=148, 450.68375pt x 335.2525pt>
+File: imgs/plotPitt25kSURF-eps-converted-to.pdf Graphic file (type pdf)
 
-<use imgs/plotPitt25k-eps-converted-to.pdf>
-Package pdftex.def Info: imgs/plotPitt25k-eps-converted-to.pdf used on input li
-ne 225.
-(pdftex.def)             Requested size: 237.13594pt x 155.09074pt.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 241.
+<use imgs/plotPitt25kSURF-eps-converted-to.pdf>
+Package pdftex.def Info: imgs/plotPitt25kSURF-eps-converted-to.pdf used on inpu
+t line 227.
+(pdftex.def)             Requested size: 237.13594pt x 176.39897pt.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 243.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [4 <./imgs/plotPitt25k-eps-converted-to.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+) [4 <./imgs/plotPitt25kSURF-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <imgs/FVmemory.eps>
-(epstopdf)                    date: 2014-11-06 09:51:33
+(epstopdf)                    date: 2014-11-04 15:35:10
 (epstopdf)                    size: 11368 bytes
 (epstopdf)             Output file: <imgs/FVmemory-eps-converted-to.pdf>
-(epstopdf)                    date: 2014-11-06 09:51:33
+(epstopdf)                    date: 2014-11-04 15:35:11
 (epstopdf)                    size: 7237 bytes
-(epstopdf)             Command: <epstopdf --outfile=imgs/FVmemory-eps-converted
--to.pdf imgs/FVmemory.eps>
-(epstopdf)             \includegraphics on input line 271.
+(epstopdf)             Command: <repstopdf --outfile=imgs/FVmemory-eps-converte
+d-to.pdf imgs/FVmemory.eps>
+(epstopdf)             \includegraphics on input line 275.
 Package epstopdf Info: Output file is already uptodate.
 
-<imgs/FVmemory-eps-converted-to.pdf, id=186, 461.725pt x 279.0425pt>
+<imgs/FVmemory-eps-converted-to.pdf, id=190, 461.725pt x 279.0425pt>
 File: imgs/FVmemory-eps-converted-to.pdf Graphic file (type pdf)
 
 <use imgs/FVmemory-eps-converted-to.pdf>
 Package pdftex.def Info: imgs/FVmemory-eps-converted-to.pdf used on input line 
-271.
+275.
 (pdftex.def)             Requested size: 237.13594pt x 143.31038pt.
+\openout2 = `table25k.aux'.
+
+ (./table25k.tex
+Underfull \hbox (badness 10000) in alignment at lines 37--37
+[][][][][][] 
+ []
+
+)
+\openout2 = `table55k.aux'.
+
+ (./table55k.tex)
 \openout2 = `myFigureWnorm.aux'.
 
  (./myFigureWnorm.tex
-<imgs/Wnorm/exImproved02/query.jpg, id=187, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/query.jpg, id=191, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/query.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/query.jpg>
@@ -597,7 +616,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/query.jpg used on input line 8
 .
 (pdftex.def)             Requested size: 137.94505pt x 102.42992pt.
 
-<imgs/Wnorm/exImproved02/improvedPval01.jpg, id=189, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improvedPval01.jpg, id=193, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improvedPval01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improvedPval01.jpg>
@@ -605,7 +624,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improvedPval01.jpg used on inp
 ut line 14.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved02/improvedPval02.jpg, id=191, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improvedPval02.jpg, id=195, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improvedPval02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improvedPval02.jpg>
@@ -613,7 +632,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improvedPval02.jpg used on inp
 ut line 15.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved02/improvedPval03.jpg, id=193, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improvedPval03.jpg, id=197, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improvedPval03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improvedPval03.jpg>
@@ -621,7 +640,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improvedPval03.jpg used on inp
 ut line 16.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved02/improvedPval04.jpg, id=195, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improvedPval04.jpg, id=199, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improvedPval04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improvedPval04.jpg>
@@ -629,7 +648,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improvedPval04.jpg used on inp
 ut line 17.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved02/improved01.jpg, id=197, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improved01.jpg, id=201, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improved01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improved01.jpg>
@@ -637,7 +656,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improved01.jpg used on input l
 ine 21.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved02/improved02.jpg, id=199, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improved02.jpg, id=203, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improved02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improved02.jpg>
@@ -645,7 +664,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improved02.jpg used on input l
 ine 22.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved02/improved03.jpg, id=201, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improved03.jpg, id=205, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improved03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improved03.jpg>
@@ -653,7 +672,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improved03.jpg used on input l
 ine 23.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved02/improved04.jpg, id=203, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved02/improved04.jpg, id=207, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved02/improved04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved02/improved04.jpg>
@@ -661,7 +680,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved02/improved04.jpg used on input l
 ine 24.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/query.jpg, id=205, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/query.jpg, id=209, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/query.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/query.jpg>
@@ -669,7 +688,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/query.jpg used on input line 3
 6.
 (pdftex.def)             Requested size: 137.94505pt x 102.42992pt.
 
-<imgs/Wnorm/exImproved05/improvedPval01.jpg, id=207, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improvedPval01.jpg, id=211, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improvedPval01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improvedPval01.jpg>
@@ -677,7 +696,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improvedPval01.jpg used on inp
 ut line 42.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/improvedPval02.jpg, id=209, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improvedPval02.jpg, id=213, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improvedPval02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improvedPval02.jpg>
@@ -685,7 +704,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improvedPval02.jpg used on inp
 ut line 43.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/improvedPval03.jpg, id=211, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improvedPval03.jpg, id=215, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improvedPval03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improvedPval03.jpg>
@@ -693,7 +712,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improvedPval03.jpg used on inp
 ut line 44.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/improvedPval04.jpg, id=213, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improvedPval04.jpg, id=217, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improvedPval04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improvedPval04.jpg>
@@ -701,7 +720,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improvedPval04.jpg used on inp
 ut line 45.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/improved01.jpg, id=215, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improved01.jpg, id=219, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improved01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improved01.jpg>
@@ -709,7 +728,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improved01.jpg used on input l
 ine 49.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/improved02.jpg, id=217, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improved02.jpg, id=221, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improved02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improved02.jpg>
@@ -717,7 +736,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improved02.jpg used on input l
 ine 50.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/improved03.jpg, id=219, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improved03.jpg, id=223, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improved03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improved03.jpg>
@@ -725,7 +744,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improved03.jpg used on input l
 ine 51.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved05/improved04.jpg, id=221, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved05/improved04.jpg, id=225, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved05/improved04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved05/improved04.jpg>
@@ -733,7 +752,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved05/improved04.jpg used on input l
 ine 52.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/query.jpg, id=223, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/query.jpg, id=227, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/query.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/query.jpg>
@@ -741,7 +760,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/query.jpg used on input line 6
 1.
 (pdftex.def)             Requested size: 137.94505pt x 102.42992pt.
 
-<imgs/Wnorm/exImproved04/improvedPval01.jpg, id=225, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improvedPval01.jpg, id=229, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improvedPval01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improvedPval01.jpg>
@@ -749,7 +768,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improvedPval01.jpg used on inp
 ut line 67.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/improvedPval02.jpg, id=227, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improvedPval02.jpg, id=231, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improvedPval02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improvedPval02.jpg>
@@ -757,7 +776,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improvedPval02.jpg used on inp
 ut line 68.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/improvedPval03.jpg, id=229, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improvedPval03.jpg, id=233, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improvedPval03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improvedPval03.jpg>
@@ -765,7 +784,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improvedPval03.jpg used on inp
 ut line 69.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/improvedPval04.jpg, id=231, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improvedPval04.jpg, id=235, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improvedPval04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improvedPval04.jpg>
@@ -773,7 +792,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improvedPval04.jpg used on inp
 ut line 70.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/improved01.jpg, id=233, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improved01.jpg, id=237, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improved01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improved01.jpg>
@@ -781,7 +800,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improved01.jpg used on input l
 ine 74.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/improved02.jpg, id=235, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improved02.jpg, id=239, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improved02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improved02.jpg>
@@ -789,7 +808,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improved02.jpg used on input l
 ine 75.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/improved03.jpg, id=237, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improved03.jpg, id=241, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improved03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improved03.jpg>
@@ -797,7 +816,7 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improved03.jpg used on input l
 ine 76.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exImproved04/improved04.jpg, id=239, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exImproved04/improved04.jpg, id=243, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exImproved04/improved04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exImproved04/improved04.jpg>
@@ -805,14 +824,14 @@ Package pdftex.def Info: imgs/Wnorm/exImproved04/improved04.jpg used on input l
 ine 77.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/query.jpg, id=241, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/query.jpg, id=245, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/query.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/query.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix15/query.jpg used on input line 87.
 (pdftex.def)             Requested size: 137.94505pt x 102.42992pt.
 
-<imgs/Wnorm/exMix15/mixPval01.jpg, id=243, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mixPval01.jpg, id=247, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mixPval01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mixPval01.jpg>
@@ -820,7 +839,7 @@ Package pdftex.def Info: imgs/Wnorm/exMix15/mixPval01.jpg used on input line 93
 .
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/mixPval02.jpg, id=245, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mixPval02.jpg, id=249, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mixPval02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mixPval02.jpg>
@@ -828,7 +847,7 @@ Package pdftex.def Info: imgs/Wnorm/exMix15/mixPval02.jpg used on input line 94
 .
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/mixPval03.jpg, id=247, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mixPval03.jpg, id=251, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mixPval03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mixPval03.jpg>
@@ -836,7 +855,7 @@ Package pdftex.def Info: imgs/Wnorm/exMix15/mixPval03.jpg used on input line 95
 .
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/mixPval04.jpg, id=249, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mixPval04.jpg, id=253, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mixPval04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mixPval04.jpg>
@@ -844,42 +863,42 @@ Package pdftex.def Info: imgs/Wnorm/exMix15/mixPval04.jpg used on input line 96
 .
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/mix01.jpg, id=251, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mix01.jpg, id=255, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mix01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mix01.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix15/mix01.jpg used on input line 100.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/mix02.jpg, id=253, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mix02.jpg, id=257, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mix02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mix02.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix15/mix02.jpg used on input line 101.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/mix03.jpg, id=255, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mix03.jpg, id=259, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mix03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mix03.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix15/mix03.jpg used on input line 102.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix15/mix04.jpg, id=257, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix15/mix04.jpg, id=261, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix15/mix04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix15/mix04.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix15/mix04.jpg used on input line 103.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/query.jpg, id=259, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/query.jpg, id=263, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/query.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/query.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix19/query.jpg used on input line 112.
 (pdftex.def)             Requested size: 137.94505pt x 102.42992pt.
 
-<imgs/Wnorm/exMix19/mixPval01.jpg, id=261, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mixPval01.jpg, id=265, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mixPval01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mixPval01.jpg>
@@ -887,7 +906,7 @@ Package pdftex.def Info: imgs/Wnorm/exMix19/mixPval01.jpg used on input line 11
 8.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/mixPval02.jpg, id=263, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mixPval02.jpg, id=267, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mixPval02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mixPval02.jpg>
@@ -895,7 +914,7 @@ Package pdftex.def Info: imgs/Wnorm/exMix19/mixPval02.jpg used on input line 11
 9.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/mixPval03.jpg, id=265, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mixPval03.jpg, id=269, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mixPval03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mixPval03.jpg>
@@ -903,7 +922,7 @@ Package pdftex.def Info: imgs/Wnorm/exMix19/mixPval03.jpg used on input line 12
 0.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/mixPval04.jpg, id=267, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mixPval04.jpg, id=271, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mixPval04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mixPval04.jpg>
@@ -911,67 +930,92 @@ Package pdftex.def Info: imgs/Wnorm/exMix19/mixPval04.jpg used on input line 12
 1.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/mix01.jpg, id=269, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mix01.jpg, id=273, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mix01.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mix01.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix19/mix01.jpg used on input line 125.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/mix02.jpg, id=271, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mix02.jpg, id=275, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mix02.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mix02.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix19/mix02.jpg used on input line 126.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/mix03.jpg, id=273, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mix03.jpg, id=277, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mix03.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mix03.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix19/mix03.jpg used on input line 127.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 
-<imgs/Wnorm/exMix19/mix04.jpg, id=275, 1204.5pt x 903.375pt>
+<imgs/Wnorm/exMix19/mix04.jpg, id=279, 1204.5pt x 903.375pt>
 File: imgs/Wnorm/exMix19/mix04.jpg Graphic file (type jpg)
 
 <use imgs/Wnorm/exMix19/mix04.jpg>
 Package pdftex.def Info: imgs/Wnorm/exMix19/mix04.jpg used on input line 128.
 (pdftex.def)             Requested size: 62.46484pt x 45.5244pt.
 )
-Overfull \hbox (48.51527pt too wide) in paragraph at lines 2--282
+Overfull \hbox (48.51527pt too wide) in paragraph at lines 2--315
 []$[]$ $[]$ $[]$
  []
 
 
-Overfull \hbox (48.51527pt too wide) in paragraph at lines 2--282
+Overfull \hbox (48.51527pt too wide) in paragraph at lines 2--315
 []$ $[]$ $[]$
  []
 
 
-Overfull \hbox (46.61525pt too wide) in paragraph at lines 2--282
+Overfull \hbox (46.61525pt too wide) in paragraph at lines 2--315
 []$ $[]$
  []
 
 
-Overfull \hbox (46.61525pt too wide) in paragraph at lines 2--282
+Overfull \hbox (46.61525pt too wide) in paragraph at lines 2--315
 []$ $[]$
  []
 
 
-Overfull \hbox (46.61525pt too wide) in paragraph at lines 2--282
+Overfull \hbox (46.61525pt too wide) in paragraph at lines 2--315
 []$ $[]$ 
  []
 
 
-LaTeX Warning: Float too large for page by 16.991pt on input line 289.
+LaTeX Warning: Float too large for page by 16.991pt on input line 322.
+
+[5] (./cvpr15review.bbl (./cvpr15review.brf)
+\tf@brf=\write3
+\openout3 = `cvpr15review.brf'.
 
 
-Overfull \hbox (5.24747pt too wide) in alignment at lines 328--328
-[][][][][][][][][][][] 
+Underfull \vbox (badness 1092) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 52--52
+\OT1/ptm/m/n/9 E. Tzeng, and T. Dar-rell.  De-caf: A deep con-vo-lu-
  []
 
-[5] [6
+
+Underfull \hbox (badness 1838) in paragraph at lines 52--52
+\OT1/ptm/m/n/9 tional ac-ti-va-tion fea-ture for generic vi-sual recog-ni-tion.
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
+[6
+
+
+
+
+ <./imgs/FVmemory-eps-converted-to.pdf>]
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no ¡ in font ptmr7t!
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 337.
+ [7] [8
 
 
  <./imgs/Wnorm/exImproved02/query.jpg> <./imgs/Wnorm/exImproved02/improvedPval0
@@ -997,46 +1041,33 @@ mgs/Wnorm/exMix15/mixPval04.jpg> <./imgs/Wnorm/exMix15/mix01.jpg> <./imgs/Wnorm
 /imgs/Wnorm/exMix19/mixPval02.jpg> <./imgs/Wnorm/exMix19/mixPval03.jpg> <./imgs
 /Wnorm/exMix19/mixPval04.jpg> <./imgs/Wnorm/exMix19/mix01.jpg> <./imgs/Wnorm/ex
 Mix19/mix02.jpg> <./imgs/Wnorm/exMix19/mix03.jpg> <./imgs/Wnorm/exMix19/mix04.j
-pg>] (./cvpr15review.bbl (./cvpr15review.brf)
-\tf@brf=\write3
-\openout3 = `cvpr15review.brf'.
-
-
-Underfull \hbox (badness 1527) in paragraph at lines 52--52
-\OT1/ptm/m/n/9 E. Tzeng, and T. Dar-rell.  De-caf: A deep con-vo-lu-
- []
-
-
-Underfull \hbox (badness 1838) in paragraph at lines 52--52
-\OT1/ptm/m/n/9 tional ac-ti-va-tion fea-ture for generic vi-sual recog-ni-tion.
-
- []
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
-[7 <./imgs/FVmemory-eps-converted-to.pdf>]
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ¡ in font ptmr7t!
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 456.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 456.
+pg>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 337.
  (./cvpr15review.aux
-(./myFigureWnorm.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 456.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 456.
-Package rerunfilecheck Info: File `cvpr15review.brf' has not changed.
-(rerunfilecheck)             Checksum: 4448652C1AF20358EBB6B7F64F3DE143;2233.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 456.
+(./table25k.aux) (./table55k.aux) (./myFigureWnorm.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 337.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 337.
+
+
+Package rerunfilecheck Warning: File `cvpr15review.brf' has changed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+Package rerunfilecheck Info: Checksums for `cvpr15review.brf':
+(rerunfilecheck)             Before: AE2771832309743A1482125C987A2299;2277
+(rerunfilecheck)             After:  F51F55C87A1396310AC579C5AC774553;2277.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 337.
  ) 
 Here is how much of TeX's memory you used:
- 8707 strings out of 493307
- 132777 string characters out of 6139906
- 260654 words of memory out of 5000000
- 11886 multiletter control sequences out of 15000+600000
- 34578 words of font info for 76 fonts, out of 8000000 for 9000
+ 8533 strings out of 493493
+ 129266 string characters out of 3143798
+ 264570 words of memory out of 3000000
+ 11546 multiletter control sequences out of 15000+200000
+ 34578 words of font info for 76 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,13n,47p,1253b,437s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,12n,45p,1253b,433s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -1054,10 +1085,10 @@ mf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts
 elvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on cvpr15review.pdf (8 pages, 5048980 bytes).
+Output written on cvpr15review.pdf (8 pages, 5048313 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 77 named destinations out of 1000 (max. 500000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
+ 78 named destinations out of 1000 (max. 500000)
  516 words of extra memory for PDF output out of 10000 (max. 10000000)
 
