@@ -61,12 +61,13 @@ First line of institution2 address\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-   The goal of this work is to localize a query photograph by finding other images depicting the same place in a large geotagged image database. The contributions of this work are three fold. First, we learn a {\em discriminative} yet {\em compact} descriptor of each image in the database. This is achieved by applying exemplar support vector machine (e-SVM) learning to compact Fisher vector descriptors extracted from database images. Secondly, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Finally, based on this analysis we demonstrate that the learnt and re-normalized descriptor could be directly used for matching, thus avoiding the need for expensive and tedious calibration typically needed for exemplar support vector machine methods. Place recognition results are shown on two image datasets of Google street-view images from Pittsburgh  and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions. 
+   \noindent
+   The goal of this work is to localize a query photograph by finding other images depicting the same place in a large geotagged image database. The contributions of this work are three fold. First, we learn a {\em discriminative} yet {\em compact} descriptor of each image in the database. This is achieved by applying exemplar support vector machine (e-SVM) learning to compact Fisher vector descriptors extracted from database images. Secondly, we analyze the exemplar support vector machine objective and show that the learnt hyperplane can be interpreted as a new descriptor that replaces the original positive example and is re-weighted to increase its separation from the negative data. Finally, based on this analysis, we demonstrate that the learnt and re-normalized descriptor could be directly used for matching, thus avoiding the need for expensive and tedious calibration typically needed for exemplar support vector machine methods. Place recognition results are shown on two image datasets of Google street-view images from Pittsburgh  and demonstrate the learnt representation consistently improves over the standard Fisher vector descriptors at different target dimensions. 
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
 \section{Introduction}
-
+\noindent
 The goal of this work is to localize a query image by matching to a large database of geotagged street-level imagery.
 This is an important problem with practical applications in robotics, augmented reality or navigation. This task is however very difficult. It is hard to distinguish different places, e.g.\ streets in a city, from each other. The imaged appearance of a place can change drastically due to factors such as  viewpoint, illumination or even changes over time.
 %
@@ -138,7 +139,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
       \paragraph{Case I: $C_2\rightarrow 0$.}
          The goal is to show that when the weight  $C_2$ of the negative data in objective~\eqref{eq:obj} goes towards zero, the resulting hyperplane vector $w_j$ is parallel with the vector of positive training descriptor $\Phi_j^+$. When $w_j$ is normalized to have unit L2 norm the two vectors are identical. First, let us decompose $w$ into parallel and orthogonal part with respect to the positive training data point $\Phi^+$ (in the following we omit index $j$ for brevity), i.e. $w=w^{\perp}+w^{||}$, where $(w^{\perp})^T \Phi^+ = 0$. Next, we observe that when the weight of the negative data diminishes ($C_2\rightarrow 0$), any non-zero component $w^{\perp}$ will increase the value of the objective. As a result, for $C_2\rightarrow 0$ the objective is minimized by $w^{||}$, i.e.\ the optimal $w$ is parallel with $\Phi^+$.
 
-         In detail, for $w=w^{\perp}+w^{||}$ the objective~(\ref{eq:obj}) can be written as
+         In detail, for $w=w^{\perp}+w^{||}$, the objective~(\ref{eq:obj}) can be written as
             %
             \begin{align}
                \label{eq:decomposedOrig}
@@ -265,9 +266,9 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
       % We perform experiments on several target Fisher vector dimensions $d\in\{128,512,2048\}$. For each method we measure performance using the percentage of correctly recognized queries (Recall) similarly to, e.g.,~\cite{Chen11,Knopp2010,Sattler-BMVC12}. The query is correctly localized if at least one of the top $K$ retrieved database images is within $20$ meters from the ground truth position of the query. Results are shown for different values of $K$ in tables~\ref{tab:recall} and \ref{tab:recall2}. For the Pittsburgh 25k we also show results in the form of a curve in figure~\ref{fig:recall}. The results clearly demonstrate the benefits of the learnt descriptors with respect to the standard Fisher vectors for all target dimensions and lengths of shortlist $K$. The benefits of discriminative learning are specially prominent for low-dimensional compact descriptors ($d=128$). 
       % The proposed method also significantly outperforms the bag-of-visual-words baseline. Figure~\ref{fig:images} shows examples of place recognition results. 
 
-      \paragraph{Bag-of-visual-words}
+      \paragraph{Bag-of-visual-words.}
          \textcolor{petr}{
-            For bag of visual words image representation we provide three kind of results summarized in table \ref{tab:recallBOW}. First, similarly to \cite{Gronat13}, we compare proposed method (e-SVM) to the standard bag-of-visual-words baseline (BOW). We observe improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM). Secondly, the results are also confronted to the p-value calibration of \cite{Gronat13}. The p-value calibration (BOW p-val) gives marginally better results (33.6\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) with no calibration. As reported in \cite{Gronat13}, we observe that using these scores directly with no calibration does not perform on BOW. However, this method gives surprisingly good results on Fisher vectors. Details will be given next.
+            For bag of visual words image representation we provide three kind of results summarized in table \ref{tab:recallBOW}. First, similarly to \cite{Gronat13}, we compare the proposed method (e-SVM) to the standard bag-of-visual-words baseline (BOW). We observe improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM). Secondly, the results are also confronted to the p-value calibration of \cite{Gronat13}. The p-value calibration (BOW p-val) gives marginally better results (33.0\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) with no calibration. As reported in \cite{Gronat13}, we observe that using raw SVM scores directly with no calibration does not perform on BOW. However, this method gives satisfiable good results on Fisher vectors. Details are be given next.
          }
 
 
@@ -280,14 +281,14 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
                      in the top $K\in\{1,2,5,10,20\}$ retrieved images.
                      % Different methods have been applied to two types of descriptors, the BOW and Fisher vectors compressed to different dimensions. The learnt representations (BOW \emph{e-SVM} and BOW \emph{p-val}) outperform the raw BOW baseline as well as the learnt representation without calibration (BOW raw SVM).
                   } 
-                  The learnt descriptors by the proposed method (BOW e-SVM) marginally improves over the raw bag-of-visual-words descriptors (BOW) across the whole range of $K$  and all dimensions.
+                  The learnt descriptors by the proposed method (BOW e-SVM) marginally improves over the raw bag-of-visual-words descriptors (BOW).
 %                   on both the 25k and 55k Pittsburgh image datasets.     
             }
             \label{tab:recallBOW}
             \end{centering}
          \end{table}
 
-      \paragraph{Fisher vectors}
+      \paragraph{Fisher vectors.}
          \begin{table}[b]
             \begin{centering}
                \include{table25k}
@@ -306,13 +307,13 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
          %
          \textcolor{petr}{
          Table \ref{tab:recall} summarizes the results of proposed method that has been applied on Fisher vectors for several target dimensions $d\in\{128,512,2048\}$. The learnt image representation (FV e-SVM) significantly outperforms the Fisher vector baseline (FV). The improvements are consistent across different lengths $K$ of the shortlist for all target dimensions of the Fisher vectors.
-         Figure \ref{fig:recall} shows the results in a form of curve and it clearly demonstrates the benefits of the learnt descriptors. For comprehensiveness the figure also shows the BOW baseline curve from table \ref{tab:recallBOW} shown in black.
+         Figure \ref{fig:recall} shows the results in a form of curve and it clearly demonstrates the benefits of the learnt descriptors. For comprehensiveness the figure also shows the BOW baseline curve taken from table \ref{tab:recallBOW} shown in black.
          \\
-         The p-val calibration of~\cite{Gronat13} has been tested on e-SVM Fisher vectors. We found that the calibration did not perform well for the learnt Fisher vector classifiers (top 1 recall of 25.3\% compared to baseline performance of 33.6\% for dimension 128). When examining the results, we believe this may be attributed to the fact that Fisher vectors are low dimensional compared to the extremely high-dimensional (d=100,000) bag-of-visual-words representation, which affects the distribution of the classifier scores on the negative test data.
+         The p-val calibration of~\cite{Gronat13} has been also tested on e-SVM Fisher vectors. We found that the calibration did not perform well for the learnt Fisher vector classifiers (top 1 recall of 25.3\% compared to baseline performance of 33.6\% for dimension 128). When examining the results, we believe this may be attributed to the fact that Fisher vectors are low dimensional compared to the extremely high-dimensional (d=100,000) bag-of-visual-words representation, which affects the distribution of the classifier scores on the negative test data.
          \\
-         Next, we investigate the performance of a raw exemplar-SVM (raw e-SVM) without any further calibration for both image descriptors . We observe that while using raw SVM scores directly without any calibration fails for the bag-of-visual-words representation (BOW raw SVM) (as reported in \cite{Gronat13}), it marginally improves recall for larger $K$ for Fisher vectors (68.4\% for FV128 raw SVM compared to 67.7\% for non-learned FV128).
+         Next, we investigate the performance of a raw exemplar-SVM (raw e-SVM) without any further calibration on Fisher vectors. We observe that while using raw SVM scores directly without any calibration fails for the bag-of-visual-words representation (BOW raw SVM, talbe~\ref{tab:recallBOW}), as reported in \cite{Gronat13}, it marginally improves the recall for larger $K$ for Fisher vectors (68.4\% for FV128 raw SVM compared to 67.7\% for non-learned FV128).
          \\
-         Finally, we performed experiments on the Pittsburgh 55k dataset. Similarly to the former dataset, the results summarized in table \ref{tab:recall2} show consistent improvement of the proposed method (FV e-SVM) over the Fisher vector baseline (FV) across all target dimensions. The benefits of the proposed method in terms of memory efficiency will be discussed next.
+         Finally, we performed experiments on the larger Pittsburgh 55k dataset. Similarly to the former dataset, the results summarized in table \ref{tab:recall2} show consistent improvement of the proposed method (FV e-SVM) over the Fisher vector baseline (FV) across all target dimensions. The benefits of the proposed method in terms of memory efficiency will be discussed next.
          }
          %
          \begin{table}[t]
