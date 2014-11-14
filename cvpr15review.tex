@@ -135,7 +135,26 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
    \subsection{Analysis of per-exemplar SVM objective} %\vspace{-0.2cm} 
       In this section, we analyze the exemplar SVM objective~(\ref{eq:obj}) and show the learnt and {\em re-normalized} weight vector $w_j$ can be interpreted as a new descriptor $\Psi_j$ that replaces the original positive training descriptor $\Phi^+_j$.  In particular, we show first that when the weight $C_2$ of the negative data in objective~(\ref{eq:obj}) goes to zero and the learnt $\Psi_j$ is identical to the original positive training data point $\Phi_j^+$.  Second, when $C_2>0$, the learnt $\Psi_j$ moves away from the positive $\Phi_j^+$ to increase its separation from the negative data.
       Details are given next.
-
+            %
+            \begin{figure}[t]
+               \begin{center}
+                  \subfigure[$C_2>0$ ]{
+                     \centering
+                     \includegraphics[width=0.45\linewidth]{imgs/figSVM01tight}
+                  }
+                  %        $C_2 \rightarrow 0$
+                  \subfigure[$C_2 \rightarrow 0$]{
+                     \centering
+                     \includegraphics[width=0.45\linewidth]{imgs/figSVM02tight}
+                  }
+                  \caption{
+                     {\bf An illustration of the effect of decreasing parameter $C_2$ in the exemplar support vector machine objective.} 
+                     The positive exemplar $\Phi_j^+$ is shown in green. The negative data points are shown in red. All training data is L2 normalized to lie on a hyper-sphere. (a) For $C_2>0$, the normal $w_j$ of the optimal hyper-plane moves away from the direction given by the positive example $\Phi^+$ in a manner that reduces the loss on the negative data.  (b) As the parameter $C_2$ decreases the learnt $w_j$ becomes parallel to the positive training example $\Phi_j^+$ and its magnitude $||w_j||$ goes to 0.
+                  }
+                  \label{fig:C2effect}
+               \end{center}
+            \end{figure}
+            %
       \paragraph{Case I: $C_2\rightarrow 0$.}
          The goal is to show that when the weight  $C_2$ of the negative data in objective~\eqref{eq:obj} goes towards zero, the resulting hyperplane vector $w_j$ is parallel with the vector of positive training descriptor $\Phi_j^+$. When $w_j$ is normalized to have unit L2 norm the two vectors are identical. First, let us decompose $w$ into parallel and orthogonal part with respect to the positive training data point $\Phi^+$ (in the following we omit index $j$ for brevity), i.e. $w=w^{\perp}+w^{||}$, where $(w^{\perp})^T \Phi^+ = 0$. Next, we observe that when the weight of the negative data diminishes ($C_2\rightarrow 0$), any non-zero component $w^{\perp}$ will increase the value of the objective. As a result, for $C_2\rightarrow 0$ the objective is minimized by $w^{||}$, i.e.\ the optimal $w$ is parallel with $\Phi^+$.
 
@@ -179,25 +198,6 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 
       \paragraph{Case II: $C_2>0$.}
          When the weight $C_2$ of the negative data in the objective~\eqref{eq:decomposed} increases the direction of the optimal $w$ will be different from $w^{||}$ and will change to take into account the loss on the negative data points. Explicitly writing the hinge-loss $h(x) = \max(1-x,0)$ in the last term of~\eqref{eq:decomposed}, we see that $w$ will move in the direction that reduces $\sum_{\Phi\in \mathcal N}\max \left(1+w^T \Phi + b ,0 \right)$, i.e.\ that reduces the dot product $w^T \Phi$ on the negative examples that are active (support vectors).
-            %
-            \begin{figure}[t]
-               \begin{center}
-                  \subfigure[$C_2>0$ ]{
-                     \centering
-                     \includegraphics[width=0.45\linewidth]{imgs/figSVM01tight}
-                  }
-                  %        $C_2 \rightarrow 0$
-                  \subfigure[$C_2 \rightarrow 0$]{
-                     \centering
-                     \includegraphics[width=0.45\linewidth]{imgs/figSVM02tight}
-                  }
-                  \caption{
-                     {\bf An illustration of the effect of decreasing parameter $C_2$ in the exemplar support vector machine objective.} 
-                     The positive exemplar $\Phi_j^+$ is shown in green. The negative data points are shown in red. All training data is L2 normalized to lie on a hyper-sphere. (a) For $C_2>0$, the normal $w_j$ of the optimal hyper-plane moves away from the direction given by the positive example $\Phi^+$ in a manner that reduces the loss on the negative data.  (b) As the parameter $C_2$ decreases the learnt $w_j$ becomes parallel to the positive training example $\Phi_j^+$ and its magnitude $||w_j||$ goes to 0.
-                  }
-                  \label{fig:C2effect}
-               \end{center}
-            \end{figure}
 
    \subsection{Interpreting normalized $w$ as a new descriptor} %\vspace{-0.2cm} 
       The above analysis demonstrates that as $C_2$ decreases the normal of the optimal hyperplane $w$ that separates the positive exemplar $\Phi^+$ from negative data becomes parallel with $\Phi^+$, as shown in figure \ref{fig:C2effect}. As $C_2$ increases, the normal $w$ of the optimal hyper-plane moves away from the direction given by the positive example $\Phi^+$ in a manner that reduces the loss on the negative data. 
@@ -209,7 +209,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
          \end{equation}
       \textcolor{petr}{%TODO: \emph{we should't speak about calibration, we shoud address not ignoring $b$}\\
 %      Measuring the similarity between descriptors by their normalized cross-correlation 
-         Note again that for L2 normalized query descriptor $\Phi_q$, evaluating $\Phi_q^T\Psi_j$ in eq.~\eqref{eq:class} corresponds to computing the normalized cross-correlation between $\Phi_q$ and $\Psi_j$. This was found to work well in retrieval (see e.g.~\cite{Sivic03}) or matching whitened HOG descriptors \cite{Gharbi12, Hariharan12}, but has not yet been used in conjunction with SVMs.    
+         Note again that for L2 normalized query descriptor $\Phi_q$, evaluating $\Phi_q^T\Psi_j$ in eq.~\eqref{eq:class} corresponds to computing the~normalized cross-correlation between $\Phi_q$ and $\Psi_j$. This was found to work well in retrieval (see e.g.~\cite{Sivic03}) or matching whitened HOG descriptors \cite{Gharbi12, Hariharan12}, but has not yet been used in conjunction with SVMs.    
          Note that while the bias term $b$ is not directly used in the construction of $\Psi_j$, the bias affects the learnt optimal $w_j$ as it appears in the SVM objective~\eqref{eq:obj}. 
          % when learning the optimal SVM hyper-plane $w_j$.           
 %         even the new descriptor $\Psi_j$ is obtained by normalization of the learnt hyperplane $w_j$, the bias $b$ form equation~\eqref{eq:decomposed} is not ignored. Indeed, the bias term in convex objective~\eqref{eq:obj} is affecting the learnt the hyperplane.
@@ -221,7 +221,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 
 \section{Experimental evaluation}
 \label{sec:exp}
-   In this section we first describe the experimental set-up, then we give implementation details, and finally report results of the proposed approach on two datasets where we compare performance with raw Fisher vector matching and several baselines methods. 
+   In this section we first describe the experimental set-up, then give implementation details, and finally report results of the proposed approach on two datasets where we compare performance with raw Fisher vector matching and several baselines methods. 
 
    \subsection{Experimental set-up}
       We perform experiments on a database of Google Street View images of Pittsburgh downloaded from the Internet. The data contains panoramas covering roughly an area of $1.3 \times 1.2 \; {\rm km}^2$.       
@@ -256,7 +256,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 
    \subsection{Results} 
       \textcolor{petr}{
-         The experiments are performed on two datasets (Pittsburgh 25k and Pittsburgh 55k) on several target Fisher vector dimensions $d\in\{128,512,2048\}$. The proposed approach can be also applied to other descriptors beyond Fisher vectors. To demonstrate this we have applied the proposed method to the bag-of-visual-words.
+         The experiments are performed on two datasets (Pittsburgh 25k and Pittsburgh 55k) on several target Fisher vector dimensions $d\in\{128,512,2048\}$. The proposed approach can be also applied to other descriptors beyond Fisher vectors. To demonstrate this we have applied the proposed method to the bag-of-visual-words (BOW).
          \\
          For each method we measure performance using the percentage of correctly recognized queries (Recall) similarly to, e.g.,~\cite{Chen11,Knopp2010,Sattler-BMVC12}. The query is correctly localized if at least one of the top $K$ retrieved database images is within $20$ meters from the ground truth position of the query. Results are shown for different values of $K$ in tables~\ref{tab:recallBOW},~\ref{tab:recall} and \ref{tab:recall2}. For the Pittsburgh 25k we also show results in the form of a curve in figure~\ref{fig:recall}. The results clearly demonstrate the benefits of the learnt descriptors with respect to the standard Fisher vectors for all target dimensions and lengths of shortlist $K$. The benefits of discriminative learning are specially prominent for low-dimensional compact descriptors ($d=128$). Figure~\ref{fig:images} shows examples of place recognition results.
       }
@@ -268,7 +268,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 
       \paragraph{Bag-of-visual-words.}
          \textcolor{petr}{
-            For bag of visual words image representation we provide three kind of results summarized in table \ref{tab:recallBOW}. First, similarly to \cite{Gronat13}, we compare the proposed method (e-SVM) to the standard bag-of-visual-words baseline (BOW). We observe improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM). Secondly, the results are also confronted to the p-value calibration of \cite{Gronat13}. The p-value calibration (BOW p-val) gives marginally better results (33.0\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) with no calibration. As reported in \cite{Gronat13}, we observe that using raw SVM scores directly with no calibration does not perform on BOW. However, this method gives satisfiable good results on Fisher vectors. Details are be given next.
+            For bag of visual words image representation we provide three kind of results summarized in table \ref{tab:recallBOW}. First, similarly to \cite{Gronat13}, we compare the proposed method (e-SVM) to the standard bag-of-visual-words baseline (BOW). We observe improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM). Secondly, the results are also confronted to the p-value calibration of \cite{Gronat13}. The p-value calibration (BOW p-val) gives marginally better results (33.0\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) with no calibration. As reported in \cite{Gronat13}, we observe that using raw SVM scores directly with no calibration does not perform on BOW. However, this method gives satisfiable good results on Fisher vectors. Details are given next.
          }
 
 
