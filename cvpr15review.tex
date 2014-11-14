@@ -268,7 +268,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
 
       \paragraph{Bag-of-visual-words.}
          \textcolor{petr}{
-            For bag of visual words image representation we provide three kind of results summarized in table \ref{tab:recallBOW}. First, similarly to \cite{Gronat13}, we compare the proposed method (e-SVM) to the standard bag-of-visual-words baseline (BOW). We observe improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM). Secondly, the results are also confronted to the p-value calibration of \cite{Gronat13}. The p-value calibration (BOW p-val) gives marginally better results (33.0\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) with no calibration. As reported in \cite{Gronat13}, we observe that using raw SVM scores directly with no calibration does not perform on BOW. However, this method gives satisfiable good results on Fisher vectors. Details are given next.
+            For the bag-of-visual-words image representation we provide three kinds of results summarized in table \ref{tab:recallBOW}. First, we compare the proposed method (e-SVM) to the standard bag-of-visual-words baseline (BOW). We observe an improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM). Secondly, the results are also compared to the p-value calibration from~\cite{Gronat13}. The p-value calibration (BOW p-val) gives marginally better results for small short lists (33.0\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) with no calibration. As reported in \cite{Gronat13}, we observe that using raw SVM scores directly with no calibration does not perform well for the bag-of-visual-words representation. %We describe results on Fisher vectors next. %However, this method gives satisfiable good results on Fisher vectors. Details are given next.
          }
 
 
@@ -281,7 +281,7 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
                      in the top $K\in\{1,2,5,10,20\}$ retrieved images.
                      % Different methods have been applied to two types of descriptors, the BOW and Fisher vectors compressed to different dimensions. The learnt representations (BOW \emph{e-SVM} and BOW \emph{p-val}) outperform the raw BOW baseline as well as the learnt representation without calibration (BOW raw SVM).
                   } 
-                  The learnt descriptors by the proposed method (BOW e-SVM) marginally improves over the raw bag-of-visual-words descriptors (BOW).
+                  The learnt descriptors by the proposed method (BOW e-SVM) marginally improve over the raw bag-of-visual-words descriptors (BOW).
 %                   on both the 25k and 55k Pittsburgh image datasets.     
             }
             \label{tab:recallBOW}
@@ -306,14 +306,16 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
          \end{table}
          %
          \textcolor{petr}{
-         Table \ref{tab:recall} summarizes the results of proposed method that has been applied on Fisher vectors for several target dimensions $d\in\{128,512,2048\}$. The learnt image representation (FV e-SVM) significantly outperforms the Fisher vector baseline (FV). The improvements are consistent across different lengths $K$ of the shortlist for all target dimensions of the Fisher vectors.
-         Figure \ref{fig:recall} shows the results in a form of curve and it clearly demonstrates the benefits of the learnt descriptors. For comprehensiveness the figure also shows the BOW baseline curve taken from table \ref{tab:recallBOW} shown in black.
+         Table \ref{tab:recall} summarizes results of the proposed method applied to Fisher vectors for several target dimensions $d\in\{128,512,2048\}$. The learnt image representation (FV e-SVM) significantly outperforms the Fisher vector baseline (FV). The improvements are consistent across different lengths $K$ of the shortlist for all target dimensions of the Fisher vectors.
+         Figure \ref{fig:recall} shows the results in the form of a curve and it clearly demonstrates the benefits of the learnt descriptors. 
+%         For completeness the figure also shows the BOW baseline curve taken from table \ref{tab:recallBOW} shown in black.
          \\
-         The p-val calibration of~\cite{Gronat13} has been also tested on e-SVM Fisher vectors. We found that the calibration did not perform well for the learnt Fisher vector classifiers (top 1 recall of 25.3\% compared to baseline performance of 33.6\% for dimension 128). When examining the results, we believe this may be attributed to the fact that Fisher vectors are low dimensional compared to the extremely high-dimensional (d=100,000) bag-of-visual-words representation, which affects the distribution of the classifier scores on the negative test data.
+         We have also tested on the learnt e-SVM Fisher vectors the p-val calibration of~\cite{Gronat13}. We found that the calibration did not perform well for the learnt Fisher vector classifiers (top 1 recall of 25.3\% compared to baseline performance of 33.6\% for dimension 128). When examining the results, we believe this may be attributed to the fact that Fisher vectors are low dimensional compared to the extremely high-dimensional (d=100,000) bag-of-visual-words representation, which affects the distribution of the classifier scores on the negative test data.
          \\
-         Next, we investigate the performance of a raw exemplar-SVM (raw e-SVM) without any further calibration on Fisher vectors. We observe that while using raw SVM scores directly without any calibration fails for the bag-of-visual-words representation (BOW raw SVM, talbe~\ref{tab:recallBOW}), as reported in \cite{Gronat13}, it marginally improves the recall for larger $K$ for Fisher vectors (68.4\% for FV128 raw SVM compared to 67.7\% for non-learned FV128).
+         Next, we investigate the performance of a raw exemplar-SVM (raw e-SVM) without any further calibration. We observe that while using raw SVM scores directly without any calibration fails for the bag-of-visual-words representation (BOW raw SVM, talbe~\ref{tab:recallBOW}), as reported in \cite{Gronat13}, it marginally improves the recall for larger $K$ for Fisher vectors (68.4\% for FV128 raw SVM compared to 67.7\% for non-learned FV128).
          \\
-         Finally, we performed experiments on the larger Pittsburgh 55k dataset. Similarly to the former dataset, the results summarized in table \ref{tab:recall2} show consistent improvement of the proposed method (FV e-SVM) over the Fisher vector baseline (FV) across all target dimensions. The benefits of the proposed method in terms of memory efficiency will be discussed next.
+         Finally, we performed experiments on the larger Pittsburgh 55k dataset. The results are summarized in table \ref{tab:recall2} and show a consistent improvement of the proposed method (FV e-SVM) over the Fisher vector baseline (FV) across all target dimensions. 
+%         The benefits of the proposed method in terms of memory efficiency will be discussed next.
          }
          %
          \begin{table}[t]
@@ -332,6 +334,9 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
             \end{centering}
          \end{table}
 
+
+	% Additional results are given in supplementary material. 
+	
       % \paragraph{Applying our learning method to other descriptors.}
       %   \textcolor{petr}{ 
       %    The proposed approach can be applied to other descriptors beyond Fisher vectors. To demonstrate this we have applied the proposed method to the bag-of-visual-words descriptor and observed improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM).  
