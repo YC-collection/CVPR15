@@ -253,30 +253,101 @@ First, we apply the exemplar SVM training to compact Fisher vector~\cite{Jegou20
          To learn the new image representation for each database image $j$ we: (i) learn SVM from $\mathcal P_j$ and $N_j$ (see above); (ii) $L2$ normalize the learned $w_j$ using equation~\eqref{eq:normalization}; and (iii) use this re-normalized vector as the new image descriptor $\Psi_j$ for image $j$. At query time we compute the Fisher vector $\Phi_q$ of the query image and measure its similarity score to the learnt descriptors $\Psi_j$ for each database image by equation~\eqref{eq:class}.
    
 
-   \subsection{Results}  
-      For both databases (Pittsburgh 25k and Pittsburgh 55k) we compare results of our method (FV e-SVM) to two baselines: standard bag-of-visual-words baseline (BOW) and raw Fisher vector matching without learning (FV).  
-%  For the Pittsburgh 25k database we also compare results to exemplar SVM learning without the proposed descriptor re-normalization (SVM raw).  
+   \subsection{Results} 
+      \textcolor{petr}{
+         The experiments are performed on two datasets (Pittsburgh 25k and Pittsburgh 55k) on several target Fisher vector dimensions $d\in\{128,512,2048\}$. The proposed approach can be also applied to other descriptors beyond Fisher vectors. To demonstrate this we have applied the proposed method to the bag-of-visual-words.
+         \\
+         For each method we measure performance using the percentage of correctly recognized queries (Recall) similarly to, e.g.,~\cite{Chen11,Knopp2010,Sattler-BMVC12}. The query is correctly localized if at least one of the top $K$ retrieved database images is within $20$ meters from the ground truth position of the query. Results are shown for different values of $K$ in tables~\ref{tab:recallBOW},~\ref{tab:recall} and \ref{tab:recall2}. For the Pittsburgh 25k we also show results in the form of a curve in figure~\ref{fig:recall}. The results clearly demonstrate the benefits of the learnt descriptors with respect to the standard Fisher vectors for all target dimensions and lengths of shortlist $K$. The benefits of discriminative learning are specially prominent for low-dimensional compact descriptors ($d=128$). Figure~\ref{fig:images} shows examples of place recognition results.
+      }
 
-      We perform experiments on several target Fisher vector dimensions $d\in\{128,512,2048\}$. For each method we measure performance using the percentage of correctly recognized queries (Recall) similarly to, e.g.,~\cite{Chen11,Knopp2010,Sattler-BMVC12}. The query is correctly localized if at least one of the top $K$ retrieved database images is within $20$ meters from the ground truth position of the query. Results are shown for different values of $K$ in tables~\ref{tab:recall} and \ref{tab:recall2}. For the Pittsburgh 25k we also show results in the form of a curve in figure~\ref{fig:recall}. The results clearly demonstrate the benefits of the learnt descriptors with respect to the standard Fisher vectors for all target dimensions and lengths of shortlist $K$. The benefits of discriminative learning are specially prominent for low-dimensional compact descriptors ($d=128$). 
-      The proposed method also significantly outperforms the bag-of-visual-words baseline. Figure~\ref{fig:images} shows examples of place recognition results. 
+      % For both databases (Pittsburgh 25k and Pittsburgh 55k) we compare results of our method (FV e-SVM) to two baselines: standard bag-of-visual-words baseline (BOW) and raw Fisher vector matching without learning (FV).  
 
-      \paragraph{Applying our learning method to other descriptors.}
-        \textcolor{petr}{ 
-         The proposed approach can be applied to other descriptors beyond Fisher vectors. To demonstrate this we have applied the proposed method to the bag-of-visual-words descriptor and observed improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM).  
-For bag-of-visual-words,  the e-SVM with p-value calibration of~\cite{Gronat13} (BOW p-val) gives a slightly better results (33.6\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. The results are given in table \ref{tab:recall} (top four rows).
-        }
+      % We perform experiments on several target Fisher vector dimensions $d\in\{128,512,2048\}$. For each method we measure performance using the percentage of correctly recognized queries (Recall) similarly to, e.g.,~\cite{Chen11,Knopp2010,Sattler-BMVC12}. The query is correctly localized if at least one of the top $K$ retrieved database images is within $20$ meters from the ground truth position of the query. Results are shown for different values of $K$ in tables~\ref{tab:recall} and \ref{tab:recall2}. For the Pittsburgh 25k we also show results in the form of a curve in figure~\ref{fig:recall}. The results clearly demonstrate the benefits of the learnt descriptors with respect to the standard Fisher vectors for all target dimensions and lengths of shortlist $K$. The benefits of discriminative learning are specially prominent for low-dimensional compact descriptors ($d=128$). 
+      % The proposed method also significantly outperforms the bag-of-visual-words baseline. Figure~\ref{fig:images} shows examples of place recognition results. 
 
-      \paragraph{Comparison to other methods.}
-         %On the Pittsburgh 25k database, we compare performance of our learnt discriminative descriptors to the methods of~\cite{Gronat13} and~\cite{Knopp2010}, who report on the same testing data top $K=1$ recall of 36.5\% and 41.9\%, respectively (results taken from~\cite{Gronat13}). Our method outperforms~\cite{Knopp2010} already for dimension $d=128$ (37.8\%) and~\cite{Gronat13} for dimension $d=512$ (47.6\%). Furthermore, note that~\cite{Gronat13,Knopp2010} are based on a bag-of-visual-words representation, which typically needs to store between 1000-2000 non-zero visual words per image, which is significantly more than our learnt 128 or 512 dimensional descriptor. 
+      \paragraph{Bag-of-visual-words}
          \textcolor{petr}{
-         On the Pittsburgh 25k database, we compare performance of our learnt discriminative descriptors to the method of~\cite{Gronat13} who report results on similar testing data. Our method outperforms~\cite{Gronat13} already for dimension $d=128$ (37.8\%).
-  %       \\
-         We have also tested the p-val calibration of~\cite{Gronat13} on e-SVM Fisher vectors. We found that the calibration did not perform well for the learnt Fisher vector classifiers (top 1 recall of 25.3\% compared to baseline performance of 33.6\% for dimension 128). When examining the results, we believe this may be attributed to the fact that Fisher vectors are low dimensional compared to the extremely high-dimensional (d=100,000) bag-of-visual-words representation, which affects the distribution of the classifier scores on the negative test data.
-%         \\
-         Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) without any further calibration for both image descriptors . We observe that while using raw SVM scores directly without any calibration fails for the bag-of-visual-words representation (BOW raw SVM) (as reported in \cite{Gronat13}), it marginally improves recall for larger $K$ for Fisher vectors (68.4\% for FV128 raw SVM compared to 67.7\% for non-learned FV128).
-%         as indicated in \ref{tab:recall} (FV128 raw SVM).
-          %We have compared the proposed method with the p-value calibration of (Gronat et al.[12]) applied to Fisher vectors. The results show that our method significantly outperforms the p-value calibration (37.8\% recall@1 vs. 32.3\% recall@1; 56.9\%recall@5 vs. 50.0\% recall@5) for the Fisher vector of dimension 128. Similar gains are observed for other FV dimensions.
-        }
+            For bag of visual words image representation we provide three kind of results summarized in table \ref{tab:recallBOW}. First, similarly to \cite{Gronat13}, we compare proposed method (e-SVM) to the standard bag-of-visual-words baseline (BOW). We observe improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM). Secondly, the results are also confronted to the p-value calibration of \cite{Gronat13}. The p-value calibration (BOW p-val) gives marginally better results (33.6\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) with no calibration. As reported in \cite{Gronat13}, we observe that using these scores directly with no calibration does not perform on BOW. However, this method gives surprisingly good results on Fisher vectors. Details will be given next.
+         }
+
+
+         \begin{table}[b]
+            \begin{centering}
+               \include{table25kBOW}
+            \caption{ \textbf{Results on Pittsburgh 25k dataset - BOW.}
+                  The fraction of correctly recognized queries (recall@K)
+                  \textcolor{petr}{
+                     in the top $K\in\{1,2,5,10,20\}$ retrieved images.
+                     % Different methods have been applied to two types of descriptors, the BOW and Fisher vectors compressed to different dimensions. The learnt representations (BOW \emph{e-SVM} and BOW \emph{p-val}) outperform the raw BOW baseline as well as the learnt representation without calibration (BOW raw SVM).
+                  } 
+                  The learnt descriptors by the proposed method (BOW e-SVM) marginally improves over the raw bag-of-visual-words descriptors (BOW) across the whole range of $K$  and all dimensions.
+%                   on both the 25k and 55k Pittsburgh image datasets.     
+            }
+            \label{tab:recallBOW}
+            \end{centering}
+         \end{table}
+
+      \paragraph{Fisher vectors}
+         \begin{table}[b]
+            \begin{centering}
+               \include{table25k}
+            \caption{ \textbf{Results on Pittsburgh 25k dataset.}
+                  The fraction of correctly recognized queries (recall@K)
+                  \textcolor{petr}{
+                     in the top $K\in\{1,2,5,10,20\}$ retrieved images.
+                     % Different methods have been applied to two types of descriptors, the BOW and Fisher vectors compressed to different dimensions. The learnt representations (BOW \emph{e-SVM} and BOW \emph{p-val}) outperform the raw BOW baseline as well as the learnt representation without calibration (BOW raw SVM).
+                  } 
+                  The learnt descriptors by the proposed method (FV e-SVM) consistently improve over the raw Fisher vector descriptors (FV) across the whole range of $K$  and all dimensions.
+%                   on both the 25k and 55k Pittsburgh image datasets.     
+            }
+            \label{tab:recall}
+            \end{centering}
+         \end{table}
+         %
+         \textcolor{petr}{
+         Table \ref{tab:recall} summarizes the results of proposed method that has been applied on Fisher vectors for several target dimensions $d\in\{128,512,2048\}$. The learnt image representation (FV e-SVM) significantly outperforms the Fisher vector baseline (FV). The improvements are consistent across different lengths $K$ of the shortlist for all target dimensions of the Fisher vectors.
+         Figure \ref{fig:recall} shows the results in a form of curve and it clearly demonstrates the benefits of the learnt descriptors. For comprehensiveness the figure also shows the BOW baseline curve from table \ref{tab:recallBOW} shown in black.
+         \\
+         The p-val calibration of~\cite{Gronat13} has been tested on e-SVM Fisher vectors. We found that the calibration did not perform well for the learnt Fisher vector classifiers (top 1 recall of 25.3\% compared to baseline performance of 33.6\% for dimension 128). When examining the results, we believe this may be attributed to the fact that Fisher vectors are low dimensional compared to the extremely high-dimensional (d=100,000) bag-of-visual-words representation, which affects the distribution of the classifier scores on the negative test data.
+         \\
+         Next, we investigate the performance of a raw exemplar-SVM (raw e-SVM) without any further calibration for both image descriptors . We observe that while using raw SVM scores directly without any calibration fails for the bag-of-visual-words representation (BOW raw SVM) (as reported in \cite{Gronat13}), it marginally improves recall for larger $K$ for Fisher vectors (68.4\% for FV128 raw SVM compared to 67.7\% for non-learned FV128).
+         \\
+         Finally, we performed experiments on the Pittsburgh 55k dataset. Similarly to the former dataset, the results summarized in table \ref{tab:recall2} show consistent improvement of the proposed method (FV e-SVM) over the Fisher vector baseline (FV) across all target dimensions. The benefits of the proposed method in terms of memory efficiency will be discussed next.
+         }
+         %
+         \begin{table}[t]
+            \begin{centering}
+               \include{table55k}
+               \caption{ \textbf{Results on Pittsburgh 55k dataset - FV.}
+                  The fraction of correctly recognized queries (recall@K)
+                  \textcolor{petr}{
+                  in top $K\in\{1,2,5,10,20\}$ retrieved images.
+                  The proposed method (\emph{e-SVM}) has been applied to Fisher vectors compressed to different dimensions.
+                  } 
+                  The learnt descriptors by the proposed method (FV e-SVM) consistently improve over the raw Fisher vector descriptors across the whole range of $K$  and all dimensions.
+%                   on both the 25k and 55k Pittsburgh image datasets.     
+               }
+            \label{tab:recall2}
+            \end{centering}
+         \end{table}
+
+      % \paragraph{Applying our learning method to other descriptors.}
+      %   \textcolor{petr}{ 
+      %    The proposed approach can be applied to other descriptors beyond Fisher vectors. To demonstrate this we have applied the proposed method to the bag-of-visual-words descriptor and observed improvement from 28.7\% recall@K=1 (BOW) to 31.8\% recall@K=1 (BOW e-SVM).  
+      %    For bag-of-visual-words,  the e-SVM with p-value calibration of~\cite{Gronat13} (BOW p-val) gives a slightly better results (33.6\% recall@K=1) but at an increased training cost and a significantly higher required memory footprint at query time, which makes the method hard to scale-up to database sizes beyond 200k images. The results are given in table \ref{tab:recall} (top four rows).
+      %   }
+
+%       \paragraph{Comparison to other methods.}
+%          %On the Pittsburgh 25k database, we compare performance of our learnt discriminative descriptors to the methods of~\cite{Gronat13} and~\cite{Knopp2010}, who report on the same testing data top $K=1$ recall of 36.5\% and 41.9\%, respectively (results taken from~\cite{Gronat13}). Our method outperforms~\cite{Knopp2010} already for dimension $d=128$ (37.8\%) and~\cite{Gronat13} for dimension $d=512$ (47.6\%). Furthermore, note that~\cite{Gronat13,Knopp2010} are based on a bag-of-visual-words representation, which typically needs to store between 1000-2000 non-zero visual words per image, which is significantly more than our learnt 128 or 512 dimensional descriptor. 
+%          \textcolor{petr}{
+%          On the Pittsburgh 25k database, we compare performance of our learnt discriminative descriptors to the method of~\cite{Gronat13} who report results on similar testing data. Our method outperforms~\cite{Gronat13} already for dimension $d=128$ (37.8\%).
+%   %       \\
+%          We have also tested the p-val calibration of~\cite{Gronat13} on e-SVM Fisher vectors. We found that the calibration did not perform well for the learnt Fisher vector classifiers (top 1 recall of 25.3\% compared to baseline performance of 33.6\% for dimension 128). When examining the results, we believe this may be attributed to the fact that Fisher vectors are low dimensional compared to the extremely high-dimensional (d=100,000) bag-of-visual-words representation, which affects the distribution of the classifier scores on the negative test data.
+% %         \\
+%          Finally, we investigate the performance of a raw exemplar-SVM (raw e-SVM) without any further calibration for both image descriptors . We observe that while using raw SVM scores directly without any calibration fails for the bag-of-visual-words representation (BOW raw SVM) (as reported in \cite{Gronat13}), it marginally improves recall for larger $K$ for Fisher vectors (68.4\% for FV128 raw SVM compared to 67.7\% for non-learned FV128).
+% %         as indicated in \ref{tab:recall} (FV128 raw SVM).
+%           %We have compared the proposed method with the p-value calibration of (Gronat et al.[12]) applied to Fisher vectors. The results show that our method significantly outperforms the p-value calibration (37.8\% recall@1 vs. 32.3\% recall@1; 56.9\%recall@5 vs. 50.0\% recall@5) for the Fisher vector of dimension 128. Similar gains are observed for other FV dimensions.
+%         }
       \paragraph{Memory complexity analysis.}
          Figure~\ref{fig:memory} compares the performance of the learnt discriminative descriptor (FV eSVM) to the raw Fisher vectors (FV) for different target dimensions. 
          The results demonstrate that for a given level of accuracy (y-axis) our method learns a more compact (lower-dimensional) representation (x-axis). For example, our learnt 128-dimensional descriptor achieves a similar accuracy (around 65\%) to the 256-dimensional raw Fisher descriptor essentially reducing the memory complexity to 50\% for the same level of performance.  Note that 
@@ -291,37 +362,8 @@ For bag-of-visual-words,  the e-SVM with p-value calibration of~\cite{Gronat13} 
             }
             \label{fig:memory}
          \end{figure}
-         \begin{table}[b]
-            \begin{centering}
-               \include{table25k}
-            \caption{ \textbf{Results on Pittsburgh 25k dataset.}
-                  The fraction of correctly recognized queries (recall@K)
-                  \textcolor{petr}{
-                     in the top $K\in\{1,2,5,10,20\}$ retrieved images.
-%                     Different methods have been applied to two types of descriptors, the BOW and Fisher vectors compressed to different dimensions. The learnt representations (BOW \emph{e-SVM} and BOW \emph{p-val}) outperform the raw BOW baseline as well as the learnt representation without calibration (BOW raw SVM).
-                  } 
-                  The learnt descriptors by the proposed method (FV e-SVM) consistently improve over the raw Fisher vector descriptors (FV) across the whole range of $K$  and all dimensions.
-%                   on both the 25k and 55k Pittsburgh image datasets.     
-            }
-            \label{tab:recall}
-            \end{centering}
-         \end{table}
-
-         \begin{table}[t]
-            \begin{centering}
-               \include{table55k}
-               \caption{ \textbf{Results on Pittsburgh 55k dataset.}
-                  The fraction of correctly recognized queries (recall@K)
-                  \textcolor{petr}{
-                  in top $K\in\{1,2,5,10,20\}$ retrieved images.
-                  The proposed method (\emph{e-SVM}) has been applied to Fisher vectors compressed to different dimensions.
-                  } 
-                  The learnt descriptors by the proposed method (FV e-SVM) consistently improve over the raw Fisher vector descriptors across the whole range of $K$  and all dimensions.
-%                   on both the 25k and 55k Pittsburgh image datasets.     
-               }
-            \label{tab:recall2}
-            \end{centering}
-         \end{table}
+         %
+         %
          %
          %
          %
