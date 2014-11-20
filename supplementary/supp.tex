@@ -36,14 +36,16 @@
 \definecolor{myCopper5}{HTML}{935C3A}
 
 
-\title{Supplementary material, paperID:954}
+\title{Supplementary material for submission \# 954\\
+Fisher vector places: learning compact descriptors for place recognition
+ }
 \begin{document}
 	\maketitle
 
 \begin{figure}
 	\center
 	\includegraphics[trim = 55mm 40mm 55mm 25mm, clip=true,width=0.5\linewidth]{mapGoogle.png}
-	\caption{ \textbf{A map corresponding to the area covered by database.}
+	\caption{ \textbf{A map corresponding to the area covered by image database.}
 		The Pittsburgh 25k dataset covers roughly an area of $1.3 \times 1.2 \; {\rm km}^2$.
 	}
 \end{figure}
@@ -51,12 +53,12 @@
 \begin{figure}
 	\begin{minipage}{0.45\linewidth}
 		\center
-		(raw FV128 baseline) \\
+		FV128 (baseline, no learning) \\
 		\includegraphics[trim = 55mm 40mm 55mm 25mm, clip=true,width=\linewidth]{sup1383/heatRaw.jpg}
 	\end{minipage} 
 	\begin{minipage}{0.45\linewidth}
 		\center
-		(e-SVM FV128) \\
+		FV128 e-SVM (proposed learnt compact descriptor) \\
 		\includegraphics[trim = 55mm 40mm 55mm 25mm, clip=true,width=\linewidth]{sup1383/heatSvm.jpg}
 	\end{minipage} 
 	\\
@@ -82,11 +84,24 @@
 		\textcolor{myWhite}{xxxxxx}3. \hspace{0.25\linewidth}4. \hspace{0.25\linewidth}5. \\
 	\end{minipage}
 	%\caption{Example sup1383} 
-	\caption{ \textbf{Response of Fisher vector accross the databse images.}
-		\emph{Top row:} The heatmaps show a distribution of the Fisher vector (FV) similarity score with a given query image. A location of the query image is shown by green circle, top 5 strongest peaks are denoted by a cross marker along with its rank. \emph{Bottom row:} The query image is shown in a gray box and top five database images corresponding to the top 5 strongest peaks in the map. The correct match is denoted by green bounding box.
-		Each FV score votes into a max-pooling accumulation array that corresponds to a GPS location of the database images.
-		\emph{Left} column shows results for raw FV baseline without any learning while \emph{right} column displays results for FV obtained by proposed method (e-SVM FV). Notice that e-SVM FV descriptor suppress the peaks that are far from the query image which results into a change of ranking.
-		}
+%	\caption{ \textbf{Response of Fisher vector accross the databse images.}
+%		\emph{Top row:} The heatmaps show a distribution of the Fisher vector (FV) similarity score with a given query image. A location of the query image is shown by green circle, top 5 strongest peaks are denoted by a cross marker along with its rank. \emph{Bottom row:} The query image is shown in a gray box and top five database images corresponding to the top 5 strongest peaks in the map. The correct match is denoted by green bounding box.
+%		Each FV score votes into a max-pooling accumulation array that corresponds to a GPS location of the database images.
+%		\emph{Left} column shows results for raw FV baseline without any learning while \emph{right} column displays results for FV obtained by proposed method (e-SVM FV). Notice that e-SVM FV descriptor suppress the peaks that are far from the query image which results into a change of ranking.
+%		}
+	\caption{{\bf Top:} 
+	Matching scores for the same query image shown across the entire database on the map. Brighter pixels indicate higher (better) scores. The ground truth position of the query image is shown as a green circle. The map also shows the position and rank of the top five matches. {\bf Bottom:} The top five matches for the same query before (left) and after (right) learning.
+	Note that the proposed method (right) correctly localized the query image within the top five matched locations. 
+	The matched image is shown in green. 
+	{\bf Animation:} The animation shows the score map for the same query with the raw FV descriptors and the proposed learnt compact descriptor. Note that the learnt descriptors better discriminate different places on the map and hence some of the high scoring false positive peaks for this query are suppressed.
+%	Note that the proposed method suppresses the high-scores far from the query image, which results in a change of ranking.}
+}
+%	
+%	\textbf{Response of Fisher vector accross the databse images.}
+%		\emph{Top row:} The heatmaps show a distribution of the Fisher vector (FV) similarity score with a given query image. A location of the query image is shown by green circle, top 5 strongest peaks are denoted by a cross marker along with its rank. \emph{Bottom row:} The query image is shown in a gray box and top five database images corresponding to the top 5 strongest peaks in the map. The correct match is denoted by green bounding box.
+%		Each FV score votes into a max-pooling accumulation array that corresponds to a GPS location of the database images.
+%		\emph{Left} column shows results for raw FV baseline without any learning while \emph{right} column displays results for FV obtained by proposed method (e-SVM FV). Notice that e-SVM FV descriptor suppress the peaks that are far from the query image which results into a change of ranking.
+%}
 \end{figure}
 
 
